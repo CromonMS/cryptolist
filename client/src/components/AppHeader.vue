@@ -18,7 +18,7 @@
           <a class="navbar-item" href="#/exchanges">Exchanges</a>
           <!-- <a class="navbar-item" href="#/portfolio">Portfolio</a> -->
           <hr class="navbar-divider">
-          <span class="navbar-item">Total Marketcap - {{ marketcap }} <a @click="getMarketCap" class="icon has-text-white"><i class="fa fa-refresh" :class="{'fa-spin': this.marketcap == 'updating'}" aria-hidden="true"></i></a></span>
+          <span class="navbar-item">Total Marketcap - {{ marketcap }} <a @click="updateMarketCap" class="icon has-text-white"><i class="fa fa-refresh" :class="{'fa-spin': this.marketcap == 'updating'}" aria-hidden="true"></i></a></span>
         </div>
         <div class="navbar-end">
           <div class="navbar-item has-dropdown is-hoverable">
@@ -43,11 +43,22 @@ export default {
   data () {
     return {
       marketcap: '',
-      symbol: '£'
+      symbol: '£',
+      lastUpdated: Date.now()
     }
   },
   methods: {
+    updateMarketCap () {
+      let currentUpdateTime = this.lastUpdated
+      let currentTime = Date.now()
+      if (currentUpdateTime + 10000 > currentTime) {
+        console.log('too soon')
+      } else {
+        this.getMarketCap()
+      }
+    },
     getMarketCap () {
+      this.lastUpdated = Date.now()
       this.marketcap = 'updating'
       console.log('getting marketcap')
       let api = 'https://api.coinmarketcap.com/v1/global/?convert=GBP'
