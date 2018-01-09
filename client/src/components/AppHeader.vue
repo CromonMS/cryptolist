@@ -1,6 +1,5 @@
 <template>
   <nav class="navbar is-dark has-shadow" role="navigation" aria-label="main navigation">
-    <div id="specialShadow" class="bd-special-shadow"></div>
     <div class="container">
       <div class="navbar-brand">
         <a class="navbar-item" title="Crypto List" href="#/">Crypto List</a>
@@ -16,6 +15,7 @@
           <a class="navbar-item" href="#/news">News</a>
           <a class="navbar-item" href="#/coins">Coin List</a>
           <a class="navbar-item" href="#/exchanges">Exchanges</a>
+          <a class="navbar-item" href="#/faucets">Faucets</a>
           <!-- <a class="navbar-item" href="#/portfolio">Portfolio</a> -->
           <hr class="navbar-divider">
           <span class="navbar-item">Total Marketcap - {{ marketcap }} <a @click="updateMarketCap" class="icon has-text-white"><i class="fa fa-refresh" :class="{'fa-spin': this.marketcap == 'updating'}" aria-hidden="true"></i></a></span>

@@ -8,8 +8,12 @@ import Router from 'vue-router'
 import Main from '@/components/Main'
 import News from '@/components/News'
 
+import AdminIndex from '@/components/Admin/AdminIndex'
+import FaucetAdmin from '@/components/Admin/FaucetAdmin'
+
 import CoinListIndex from '@/components/CoinList/CoinListIndex'
 import ExchangesIndex from '@/components/Exchanges/ExchangesIndex'
+import FaucetsIndex from '@/components/Faucets/FaucetsIndex'
 import SignIn from '@/components/Users/SignIn'
 import SignUp from '@/components/Users/SignUp'
 
@@ -21,6 +25,19 @@ export default new Router({
       path: '/',
       name: 'Main',
       component: Main
+    },
+    {
+      path: '/admin',
+      name: 'AdminIndex',
+      components: {
+        default: AdminIndex,
+        faucets: FaucetAdmin
+      }
+    },
+    {
+      path: '/admin/faucets',
+      name: 'FaucetAdmin',
+      component: FaucetAdmin
     },
     {
       path: '/news',
@@ -36,6 +53,11 @@ export default new Router({
       path: '/exchanges',
       name: 'ExchangesIndex',
       component: ExchangesIndex
+    },
+    {
+      path: '/faucets',
+      name: 'FaucetsIndex',
+      component: FaucetsIndex
     },
     {
       path: '/signin',

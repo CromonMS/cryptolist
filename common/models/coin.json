@@ -15,8 +15,7 @@
       "required": true
     },
     "rank": {
-      "type": "string",
-      "requried": false
+      "type": "string"
     },
     "algorithm": {
       "type": "string"
