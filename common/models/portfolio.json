@@ -1,0 +1,29 @@
+{
+  "name": "Portfolio",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "active": {
+      "type": "boolean"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "User",
+      "foreignKey": ""
+    },
+    "coins": {
+      "type": "hasMany",
+      "model": "Coin",
+      "foreignKey": "coinId",
+      "through": "PortfolioCoin"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

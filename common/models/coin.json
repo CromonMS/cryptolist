@@ -1,0 +1,67 @@
+{
+  "name": "Coin",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "symbol": {
+      "type": "string",
+      "required": true
+    },
+    "rank": {
+      "type": "string",
+      "requried": false
+    },
+    "algorithm": {
+      "type": "string"
+    },
+    "totalCoins": {
+      "type": "number"
+    },
+    "sourceCode": {
+      "type": "string"
+    },
+    "explorer": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {
+    "populate": {
+      "accepts": [
+        {
+          "arg": "doit",
+          "type": "boolean",
+          "required": true,
+          "description": "Tell me whether to populate the db or not"
+        }
+      ],
+      "returns": [
+        {
+          "arg": "doit",
+          "type": "object",
+          "root": false,
+          "description": "The Response of the populate method"
+        }
+      ],
+      "description": "Takes in true or false",
+      "http": [
+        {
+          "path": "/populate/:doit",
+          "verb": "post"
+        }
+      ]
+    }
+  }
+}

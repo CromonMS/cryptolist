@@ -1,0 +1,40 @@
+{
+  "name": "PortfolioCoin",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "quantity": {
+      "type": "number"
+    },
+    "address": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "date": {
+      "type": "date"
+    },
+    "price_when_added": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "coin": {
+      "type": "belongsTo",
+      "model": "Coin",
+      "foreignKey": "coinId"
+    },
+    "portfolio": {
+      "type": "belongsTo",
+      "model": "Portfolio",
+      "foreignKey": "portfolioId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
