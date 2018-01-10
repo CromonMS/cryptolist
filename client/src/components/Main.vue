@@ -1,6 +1,9 @@
 <template>
   <section class="section">
-    <div class="container">
+    <div class="container" v-if="users.length < 1">
+      <app-setup></app-setup>
+    </div>
+    <div class="container" v-else>
       <div class="title">
         {{ msg }}
       </div>
@@ -12,13 +15,19 @@
 </template>
 
 <script>
+import AppSetup from '@/components/Admin/AppSetup'
 export default {
   name: 'Main',
+  components: {
+    AppSetup
+  },
   data () {
     return {
-      msg: 'Welcome to CryptoList'
+      msg: 'Welcome to CryptoList',
+      users: [{}]
     }
-  }
+  },
+  computed: {}
 }
 </script>
 
