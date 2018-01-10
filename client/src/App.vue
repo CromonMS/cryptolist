@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <app-header></app-header>
-    <router-view/>
+    <div class="main">
+      <router-view/>
+    </div>
     <app-footer></app-footer>
   </div>
 </template>
@@ -15,7 +17,10 @@ export default {
     AppHeader,
     AppFooter
   },
-  name: 'app'
+  name: 'app',
+  created () {
+    this.$store.dispatch('coins/loadCoins', {endpoint: 'Coins'}, {root: true})
+  }
 }
 </script>
 

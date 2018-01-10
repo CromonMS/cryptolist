@@ -24,7 +24,7 @@ export default {
   data () {
     return {
       msg: 'Welcome to CryptoList',
-      users: [{}]
+      users: []
     }
   },
   computed: {}

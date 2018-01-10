@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer is-sticky">
+  <footer class="footer is-static">
     <div class="container">
       <div class="columns">
         <div class="column is-two-thirds">
@@ -34,10 +34,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.is-sticky {
+.is-static {
   bottom: 0;
   overflow: hidden;
-  position: absolute;
+  position: static;
   width: 100%;
 }
 </style>
