@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <app-header :loggedIn="loggedIn"></app-header>
+    <app-header :loggedIn="loggedIn" :user="loggedInUser"></app-header>
     <div class="main">
       <router-view :loggedIn="loggedIn" />
     </div>

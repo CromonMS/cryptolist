@@ -42,5 +42,5 @@ export const populateCoins = () => {
 }
 
 export const loadPortfolio = (payload) => {
-  return axios.get(API_URL + 'Portfolios/findOne/?ownerId=' + payload.ownerId, {'filter': {'include': 'coins'}})
+  return axios.get(API_URL + 'Portfolios/findOne/?MemberId=' + payload.memberId, {'filter': {'include': 'PortfolioCoins'}})
 }

@@ -12,6 +12,7 @@
 
       <div id="navBarMain" class="navbar-menu">
         <div class="navbar-start">
+          <a class="navbar-item is-dashboard" href="#/user/dashboard" v-if="loggedIn">Dashboard</a>
           <a class="navbar-item" href="#/news">News</a>
           <a class="navbar-item" href="#/coins">Coin List</a>
           <a class="navbar-item" href="#/exchanges">Exchanges</a>
@@ -21,6 +22,16 @@
           <span class="navbar-item">Total Marketcap - {{ marketcap }} <a @click="updateMarketCap" class="icon has-text-white"><i class="fa fa-refresh" :class="{'fa-spin': this.marketcap == 'updating'}" aria-hidden="true"></i></a></span>
         </div>
         <div class="navbar-end">
+          <div class="navbar-item has-dropdown is-hoverable" v-if="loggedIn && user.Role[0].name === 'admin'">
+            <a class="navbar-link is-active">Admin</a>
+            <div class="navbar-dropdown">
+              <a class="navbar-item is-admin-dashboard" href="#/admin/dashboard">Dashboard</a>
+              <a class="navbar-item" href="#/admin/news">News Admin</a>
+              <a class="navbar-item" href="#/admin/coins">Coin Admin</a>
+              <a class="navbar-item" href="#/admin/faucets">Faucet Admin</a>
+              <a class="navbar-item" href="#/admin/exchanges">Exchange Admin</a>
+            </div>
+          </div>
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link is-active">User</a>
             <div class="navbar-dropdown" v-if="!loggedIn">
@@ -28,7 +39,6 @@
               <a class="navbar-item" href="#/signin">Sign In</a>
             </div>
             <div class="navbar-dropdown" v-else>
-              <a class="navbar-item" href="#/user/dashboard">Dashboard</a>
               <a class="navbar-item" @click="logoutUser">Sign Out</a>
             </div>
           </div>
@@ -48,6 +58,9 @@ export default {
     loggedIn: {
       type: Boolean,
       required: true
+    },
+    user: {
+      type: Object
     }
   },
   data () {
@@ -106,4 +119,11 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.is-dashboard {
+  color: #c09!important;
+}
+.is-admin-dashboard {
+  color: #0f9!important;
+  /*background-color: red;*/
+}
 </style>

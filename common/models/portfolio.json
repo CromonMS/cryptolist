@@ -8,6 +8,12 @@
   "mixins": {
     "TimeStamp": true
   },
+  "scope": {
+    "include": [
+      "PortfolioCoins",
+      "Member"
+    ]
+  },
   "properties": {
     "active": {
       "type": "boolean"

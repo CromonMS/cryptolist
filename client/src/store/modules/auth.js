@@ -70,11 +70,11 @@ const actions = {
   },
   loadUser ({commit, dispatch, getters}, payload) {
     getUser(payload).then((response) => {
-      // const accessToken = getters['auth/accessToken']
+      const accessToken = getters['auth/accessToken']
       console.log('loadUser', response)
       commit('LOAD_USER', response.data)
       commit('SET_LOGGED_IN')
-      // dispatch('users/loadPortfolio', {ownerId: response.data.id, accessToken: accessToken}, {root: true})
+      dispatch('users/loadPortfolio', {memberId: response.data.id, accessToken: accessToken}, {root: true})
     }).catch(error => {
       dispatch('utility/commitError', error.message, {root: true})
     })

@@ -1,5 +1,6 @@
 {
   "name": "Coin",
+  "description": "A model for Coins (& assets), can be populated via Coinmarketcap",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {

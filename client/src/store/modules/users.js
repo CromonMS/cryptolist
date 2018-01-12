@@ -38,6 +38,9 @@ const actions = {
   },
   unloadPortfolio ({commit}) {
     commit('UNLOAD_PORTFOLIO')
+  },
+  addCoinToPortFolio ({commit}) {
+
   }
 }
 

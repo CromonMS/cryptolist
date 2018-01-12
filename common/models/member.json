@@ -5,10 +5,14 @@
   "options": {
     "validateUpsert": true
   },
+  "mixins": {
+    "TimeStamp": true
+  },
   "scope": {
     "include": [
       "Portfolio",
-      "PortfolioCoins"
+      "PortfolioCoins",
+      "Role"
     ]
   },
   "properties": {
@@ -33,6 +37,16 @@
       "type": "hasMany",
       "model": "PortfolioCoin",
       "through": "Portfolio"
+    },
+    "Role": {
+      "type": "hasMany",
+      "model": "Role",
+      "foreignKey": "principalId",
+      "through": "RoleMapping"
+    },
+    "RoleMappping": {
+      "type": "hasMany",
+      "model": "RoleMappping"
     }
   },
   "acls": [
