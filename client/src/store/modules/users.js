@@ -21,16 +21,23 @@ const getters = {
 const mutations = {
   'LOAD_PORTFOLIO' (state, payload) {
     state.portfolio = payload
+  },
+  'UNLOAD_PORTFOLIO' (state, payload) {
+    state.portfolio = null
   }
 }
 
 const actions = {
   loadPortfolio ({commit, dispatch}, payload) {
     loadPortfolio(payload).then((response) => {
-
+      console.log(response)
+      commit('LOAD_PORTFOLIO', response.data)
     }).catch(error => {
       commit('utility/commitError', error)
     })
+  },
+  unloadPortfolio ({commit}) {
+    commit('UNLOAD_PORTFOLIO')
   }
 }
 

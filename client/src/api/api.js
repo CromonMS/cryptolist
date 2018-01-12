@@ -16,20 +16,20 @@ export const getRecord = (payload) => {
 export const createNewRecord = (payload) => {
   // send in payload.model (model name) # User
   // send in payload.record (new record) # newUser
-  // send in payload.endpoint (api endpoint) # Users
+  // send in payload.endpoint (api endpoint) # Members
   const obj = {}
   obj[payload.model] = payload.record
   console.log('api', payload)
   return axios.post(API_URL + payload.endpoint, obj)
 }
 
-// Users specific methods
+// Members specific methods
 export const loginUser = (payload) => {
-  return axios.post(API_URL + 'Users/login/?include=user&?include', {email: payload.user.email, password: payload.user.password, username: payload.user.username})
+  return axios.post(API_URL + 'Members/login', {email: payload.user.email, password: payload.user.password, username: payload.user.username})
 }
 
 export const logoutUser = (payload) => {
-  return axios.post(API_URL + 'Users/logout' + '?access_token=' + payload)
+  return axios.post(API_URL + 'Members/logout' + '?access_token=' + payload)
 }
 
 export const getUser = (payload) => {
@@ -42,5 +42,5 @@ export const populateCoins = () => {
 }
 
 export const loadPortfolio = (payload) => {
-  return axios.get(API_URL + 'Portfolios/findOne', {'ownerId': payload.userId})
+  return axios.get(API_URL + 'Portfolios/findOne/?ownerId=' + payload.ownerId, {'filter': {'include': 'coins'}})
 }

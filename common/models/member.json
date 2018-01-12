@@ -1,0 +1,66 @@
+{
+  "name": "Member",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "scope": {
+    "include": [
+      "Portfolio",
+      "PortfolioCoins"
+    ]
+  },
+  "properties": {
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "age": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "Portfolio": {
+      "type": "hasOne",
+      "model": "Portfolio",
+      "foreignKey": "memberId"
+    },
+    "PortfolioCoins": {
+      "type": "hasMany",
+      "model": "PortfolioCoin",
+      "through": "Portfolio"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": [
+        "findById",
+        "__get__portfolio",
+        "__create__portfolio"
+      ]
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "findOne"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "__get__portfolio_coins"
+    }
+  ],
+  "methods": {}
+}

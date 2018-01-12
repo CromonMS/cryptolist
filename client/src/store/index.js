@@ -26,7 +26,7 @@ const store = new Vuex.Store({
   },
   plugins: [createPersistedState({
     key: 'cryptolist',
-    paths: ['auth'],
+    paths: ['auth', 'users'],
     storage: {
       getItem: key => Cookies.get(key),
       setItem: (key, value) => Cookies.set(key, value, { expires: 3, secure: false }),

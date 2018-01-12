@@ -16,7 +16,7 @@
   },
   "User": {
     "dataSource": "db",
-    "public": true
+    "public": false
   },
   "AccessToken": {
     "dataSource": "db",
@@ -50,6 +50,10 @@
     "public": false
   },
   "Faucet": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Member": {
     "dataSource": "db",
     "public": true
   }

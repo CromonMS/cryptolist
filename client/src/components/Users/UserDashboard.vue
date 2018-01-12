@@ -5,6 +5,10 @@
     </div>
     <div class="container" v-else>
       USER DASHBOARD
+      <br>
+      User: {{ user }}
+      <br>
+      Portfolio: {{ user.portfolio }}
     </div>
   </section>
 </template>
@@ -20,6 +24,14 @@ export default {
   },
   data () {
     return {
+    }
+  },
+  computed: {
+    user () {
+      return this.$store.getters['auth/user']
+    },
+    portfolio () {
+      return this.$store.getters['users/portfolio']
     }
   }
 }

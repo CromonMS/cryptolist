@@ -48,10 +48,10 @@ const mutations = {
 const actions = {
   loginUser ({commit, dispatch}, payload) {
     loginUser(payload).then((response) => {
-      let userId = response.data.userId
-      let accessToken = response.data.id
+      const userId = response.data.userId
+      const accessToken = response.data.id
       commit('SET_AUTHORISATION_TOKEN', accessToken)
-      dispatch('auth/loadUser', {endpoint: 'Users/', id: userId, accessToken: accessToken}, {root: true})
+      dispatch('auth/loadUser', {endpoint: 'Members/', id: userId, accessToken: accessToken}, {root: true})
     }).catch(error => {
       dispatch('utility/commitError', error.message, {root: true})
     })
@@ -61,22 +61,30 @@ const actions = {
     const accessToken = getters['accessToken']
     logoutUser(accessToken).then((response) => {
       commit('SET_LOGGED_OUT', accessToken)
+      dispatch('users/unloadPortfolio', {}, {root: true})
       this.$router.push('/')
     }).catch(error => {
       console.log(error)
       dispatch('utility/commitError', error.message, {root: true})
     })
   },
-  loadUser ({commit, dispatch}, payload) {
+  loadUser ({commit, dispatch, getters}, payload) {
     getUser(payload).then((response) => {
+      // const accessToken = getters['auth/accessToken']
+      console.log('loadUser', response)
       commit('LOAD_USER', response.data)
       commit('SET_LOGGED_IN')
-      // eventbus.$emit('successfullLogin', {})
+      // dispatch('users/loadPortfolio', {ownerId: response.data.id, accessToken: accessToken}, {root: true})
     }).catch(error => {
       dispatch('utility/commitError', error.message, {root: true})
     })
   },
   forgotPassword ({commit, dispatch}, payload) {
+  },
+  signUpUser ({commit, dispatch}, payload) {
+    // createUser(payload).then((response) => {
+    //   commit('')
+    // })
   }
 }
 

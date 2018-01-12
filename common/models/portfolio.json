@@ -11,22 +11,24 @@
   "properties": {
     "active": {
       "type": "boolean"
-    },
-    "ownerId": {
-      "type": "string"
     }
   },
   "validations": [],
   "relations": {
-    "coins": {
+    "Coins": {
       "type": "hasMany",
       "model": "Coin",
       "through": "PortfolioCoin"
     },
-    "user": {
+    "Member": {
       "type": "belongsTo",
-      "model": "User",
-      "foreignKey": "ownerId"
+      "model": "Member",
+      "foreignKey": "MemberId"
+    },
+    "PortfolioCoins": {
+      "type": "hasMany",
+      "model": "PortfolioCoin",
+      "foreignKey": ""
     }
   },
   "acls": [],

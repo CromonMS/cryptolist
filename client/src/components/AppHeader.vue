@@ -22,7 +22,7 @@
         </div>
         <div class="navbar-end">
           <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link is-active">Users</a>
+            <a class="navbar-link is-active">User</a>
             <div class="navbar-dropdown" v-if="!loggedIn">
               <a class="navbar-item" href="#/signup">Sign Up</a>
               <a class="navbar-item" href="#/signin">Sign In</a>
