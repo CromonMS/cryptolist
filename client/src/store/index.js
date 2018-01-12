@@ -5,7 +5,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import auth from './modules/auth'
 import coins from './modules/coins'
+import users from './modules/users'
 import utility from './modules/utility'
 
 Vue.use(Vuex)
@@ -14,7 +16,9 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
+    auth: auth,
     coins: coins,
+    users: users,
     utility: utility
   }
 })

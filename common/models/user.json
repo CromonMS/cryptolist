@@ -1,0 +1,12 @@
+{
+  "name": "user",
+  "base": "User",
+  "relations": {
+    "Portfolios": {
+      "type": "hasMany",
+      "model": "Portfolio",
+      "foreignKey": "userId",
+      "through": "PortfolioCoin"
+    }    
+  }
+}

@@ -23,9 +23,13 @@
         <div class="navbar-end">
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link is-active">Users</a>
-            <div class="navbar-dropdown">
+            <div class="navbar-dropdown" v-if="!loggedIn">
               <a class="navbar-item" href="#/signup">Sign Up</a>
               <a class="navbar-item" href="#/signin">Sign In</a>
+            </div>
+            <div class="navbar-dropdown" v-else>
+              <a class="navbar-item" href="#/user/dashboard">Dashboard</a>
+              <a class="navbar-item" @click="logoutUser">Sign Out</a>
             </div>
           </div>
         </div>
@@ -40,6 +44,12 @@ import accounting from 'accounting'
 
 export default {
   name: 'AppHeader',
+  props: {
+    loggedIn: {
+      type: Boolean,
+      required: true
+    }
+  },
   data () {
     return {
       marketcap: '',
@@ -68,6 +78,9 @@ export default {
       }).catch(error => {
         console.log(error)
       })
+    },
+    logoutUser () {
+      this.$store.dispatch('auth/logoutUser', {root: true})
     }
   },
   created () {

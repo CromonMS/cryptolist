@@ -16,6 +16,7 @@ import ExchangesIndex from '@/components/Exchanges/ExchangesIndex'
 import FaucetsIndex from '@/components/Faucets/FaucetsIndex'
 import SignIn from '@/components/Users/SignIn'
 import SignUp from '@/components/Users/SignUp'
+import UserDashboard from '@/components/Users/UserDashboard'
 
 Vue.use(Router)
 
@@ -38,6 +39,11 @@ export default new Router({
       path: '/admin/faucets',
       name: 'FaucetAdmin',
       component: FaucetAdmin
+    },
+    {
+      path: '/user/dashboard',
+      name: 'UserDashboard',
+      component: UserDashboard
     },
     {
       path: '/news',

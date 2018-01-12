@@ -5,6 +5,9 @@
   "options": {
     "validateUpsert": true
   },
+  "mixins": {
+    "TimeStamp": true
+  },
   "properties": {
     "quantity": {
       "type": "number"
@@ -20,6 +23,12 @@
     },
     "price_when_added": {
       "type": "number"
+    },
+    "portfolioId": {
+      "type": "string"
+    },
+    "coinId": {
+      "type": "string"
     }
   },
   "validations": [],

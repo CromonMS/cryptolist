@@ -5,23 +5,28 @@
   "options": {
     "validateUpsert": true
   },
+  "mixins": {
+    "TimeStamp": true
+  },
   "properties": {
     "active": {
       "type": "boolean"
+    },
+    "ownerId": {
+      "type": "string"
     }
   },
   "validations": [],
   "relations": {
-    "user": {
-      "type": "belongsTo",
-      "model": "User",
-      "foreignKey": ""
-    },
     "coins": {
       "type": "hasMany",
       "model": "Coin",
-      "foreignKey": "coinId",
       "through": "PortfolioCoin"
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "User",
+      "foreignKey": "ownerId"
     }
   },
   "acls": [],

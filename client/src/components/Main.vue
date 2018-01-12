@@ -1,6 +1,6 @@
 <template>
   <section class="section">
-    <div class="container" v-if="users.length < 1">
+    <div class="container" v-if="users === undefined || users.length < 1">
       <app-setup></app-setup>
     </div>
     <div class="container" v-else>
@@ -23,11 +23,14 @@ export default {
   },
   data () {
     return {
-      msg: 'Welcome to CryptoList',
-      users: []
+      msg: 'Welcome to CryptoList'
     }
   },
-  computed: {}
+  computed: {
+    users () {
+      return this.$store.getters['users/users']
+    }
+  }
 }
 </script>
 

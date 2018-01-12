@@ -10,7 +10,7 @@ export const getAllRecords = (payload) => {
 }
 
 export const getRecord = (payload) => {
-  return axios.get(API_URL + payload.endpoint + payload.record.id)
+  return axios.get(API_URL + payload.endpoint + payload.id)
 }
 
 export const createNewRecord = (payload) => {
@@ -23,6 +23,24 @@ export const createNewRecord = (payload) => {
   return axios.post(API_URL + payload.endpoint, obj)
 }
 
+// Users specific methods
+export const loginUser = (payload) => {
+  return axios.post(API_URL + 'Users/login/?include=user&?include', {email: payload.user.email, password: payload.user.password, username: payload.user.username})
+}
+
+export const logoutUser = (payload) => {
+  return axios.post(API_URL + 'Users/logout' + '?access_token=' + payload)
+}
+
+export const getUser = (payload) => {
+  return axios.get(API_URL + payload.endpoint + payload.id + '?access_token=' + payload.accessToken)
+}
+
+// Coins specific Methods
 export const populateCoins = () => {
-  return axios.post(API_URL + '/populate/' + {doit: true})
+  return axios.post(API_URL + 'populate/' + {doit: true})
+}
+
+export const loadPortfolio = (payload) => {
+  return axios.get(API_URL + 'Portfolios/findOne', {'ownerId': payload.userId})
 }

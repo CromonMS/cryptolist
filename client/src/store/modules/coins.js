@@ -10,7 +10,7 @@ import {
   // updateRecord,
   // deleteRecord,
   // deleteRecords
-} from '../../api/api.js'
+} from '../../api/api'
 
 const state = {
   coins: [],
