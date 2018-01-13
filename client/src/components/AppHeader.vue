@@ -27,9 +27,10 @@
             <div class="navbar-dropdown">
               <a class="navbar-item is-admin-dashboard" href="#/admin/dashboard">Dashboard</a>
               <a class="navbar-item" href="#/admin/news">News Admin</a>
+              <a class="navbar-item" href="#/admin/users">User Admin</a>
               <a class="navbar-item" href="#/admin/coins">Coin Admin</a>
-              <a class="navbar-item" href="#/admin/faucets">Faucet Admin</a>
               <a class="navbar-item" href="#/admin/exchanges">Exchange Admin</a>
+              <a class="navbar-item" href="#/admin/faucets">Faucet Admin</a>
             </div>
           </div>
           <div class="navbar-item has-dropdown is-hoverable">

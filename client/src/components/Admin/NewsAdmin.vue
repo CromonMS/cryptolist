@@ -1,14 +1,14 @@
 <template>
   <section class="section">
     <div class="container">
-      FAUCET ADMIN INDEX
+      NEWS ADMIN INDEX
     </div>
   </section>
 </template>
 
 <script>
 export default {
-  name: 'FaucetAdmin',
+  name: 'NewsAdmin',
   data () {
     return {
 

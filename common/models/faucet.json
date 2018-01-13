@@ -1,5 +1,6 @@
 {
   "name": "Faucet",
+  "description": "A model for Crypto Faucets",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {

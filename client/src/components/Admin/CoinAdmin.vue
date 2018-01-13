@@ -1,19 +1,14 @@
 <template>
   <section class="section">
     <div class="container">
-      <admin-navbar></admin-navbar>
-      ADMIN INDEX
+      COIN ADMIN INDEX
     </div>
   </section>
 </template>
 
 <script>
-import AdminNavbar from './AdminNavbar'
 export default {
-  name: 'AdminIndex',
-  components: {
-    AdminNavbar
-  },
+  name: 'CoinAdmin',
   data () {
     return {
 

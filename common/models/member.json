@@ -1,5 +1,6 @@
 {
   "name": "Member",
+  "description": "The Member model extends User",
   "base": "User",
   "idInjection": true,
   "options": {
@@ -22,8 +23,8 @@
     "lastName": {
       "type": "string"
     },
-    "age": {
-      "type": "number"
+    "dob": {
+      "type": "string"
     }
   },
   "validations": [],
@@ -31,7 +32,7 @@
     "Portfolio": {
       "type": "hasOne",
       "model": "Portfolio",
-      "foreignKey": "memberId"
+      "foreignKey": "MemberId"
     },
     "PortfolioCoins": {
       "type": "hasMany",
