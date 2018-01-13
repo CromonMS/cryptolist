@@ -1,5 +1,6 @@
 {
   "name": "PortfolioCoin",
+  "description": "Model to Join Members To Coins",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {

@@ -1,5 +1,6 @@
 {
   "name": "Portfolio",
+  "description": "Member Portfolio model",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -10,8 +11,7 @@
   },
   "scope": {
     "include": [
-      "PortfolioCoins",
-      "Member"
+      "PortfolioCoins"
     ]
   },
   "properties": {
@@ -29,7 +29,7 @@
     "Member": {
       "type": "belongsTo",
       "model": "Member",
-      "foreignKey": "MemberId"
+      "foreignKey": "ownerId"
     },
     "PortfolioCoins": {
       "type": "hasMany",

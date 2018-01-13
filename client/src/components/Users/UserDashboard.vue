@@ -7,9 +7,9 @@
       <user-dashboard-nav></user-dashboard-nav>
       USER DASHBOARD
       <br>
-      User: {{ user }}
+      User: <pre>{{ user }}</pre>
       <br>
-      Portfolio: {{ portfolio }}
+      Portfolio: <pre>{{ user.Portfolio }}</pre>
     </div>
   </section>
 </template>

@@ -47,7 +47,7 @@
   },
   "PortfolioCoin": {
     "dataSource": "db",
-    "public": false
+    "public": true
   },
   "Faucet": {
     "dataSource": "db",

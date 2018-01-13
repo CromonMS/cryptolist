@@ -12,7 +12,6 @@
   "scope": {
     "include": [
       "Portfolio",
-      "PortfolioCoins",
       "Role"
     ]
   },
@@ -30,9 +29,9 @@
   "validations": [],
   "relations": {
     "Portfolio": {
-      "type": "hasOne",
+      "type": "hasMany",
       "model": "Portfolio",
-      "foreignKey": "MemberId"
+      "foreignKey": "ownerId"
     },
     "PortfolioCoins": {
       "type": "hasMany",

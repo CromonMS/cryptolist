@@ -28,7 +28,7 @@ const mutations = {
 }
 
 const actions = {
-  loadPortfolio ({commit, dispatch}, payload) {
+  loadPortfolio ({commit}, payload) {
     loadPortfolio(payload).then((response) => {
       console.log(response)
       commit('LOAD_PORTFOLIO', response.data)
