@@ -1,7 +1,7 @@
 <template>
   <section class="section">
     <div class="container">
-      <button class="button is-info" @click.prevent="newFaucet = !newFaucet">
+      <button class="button is-link" @click.prevent="newFaucet = !newFaucet">
         <span v-if="!newFaucet">ADD NEW</span>
         <span v-if="newFaucet">CLOSE</span>
       </button>
@@ -11,20 +11,25 @@
         <new-faucet></new-faucet>    
       </div>
       <div class="container">
-        <faucet-list :faucets="faucets"></faucet-list>
+        <faucets-list :faucets="faucets" :user="user"></faucets-list>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import FaucetList from './Faucets/FaucetList'
+import FaucetsList from '@/components/Faucets/FaucetsList'
 import NewFaucet from './Faucets/NewFaucet'
 export default {
   name: 'FaucetAdmin',
   components: {
-    FaucetList,
+    FaucetsList,
     NewFaucet
+  },
+  props: {
+    user: {
+      type: Object
+    }
   },
   data () {
     return {

@@ -12,10 +12,10 @@ import AdminDashboard from '@/components/Admin/AdminDashboard'
 import CoinAdmin from '@/components/Admin/CoinAdmin'
 import ExchangeAdmin from '@/components/Admin/ExchangeAdmin'
 import FaucetAdmin from '@/components/Admin/FaucetAdmin'
-import NewsAdmin from '@/components/Admin/NewsAdmin'
+import NewsPostAdmin from '@/components/Admin/NewsPostAdmin'
 import UserAdmin from '@/components/Admin/UserAdmin'
 
-import CoinListIndex from '@/components/CoinList/CoinListIndex'
+import CoinsIndex from '@/components/Coins/CoinsIndex'
 import ExchangesIndex from '@/components/Exchanges/ExchangesIndex'
 import FaucetsIndex from '@/components/Faucets/FaucetsIndex'
 import SignIn from '@/components/Users/SignIn'
@@ -53,8 +53,8 @@ export default new Router({
     },
     {
       path: '/admin/news',
-      name: 'NewsAdmin',
-      component: NewsAdmin
+      name: 'NewsPostAdmin',
+      component: NewsPostAdmin
     },
     {
       path: '/admin/users',
@@ -73,8 +73,8 @@ export default new Router({
     },
     {
       path: '/coins',
-      name: 'CoinListIndex',
-      component: CoinListIndex
+      name: 'CoinsIndex',
+      component: CoinsIndex
     },
     {
       path: '/exchanges',

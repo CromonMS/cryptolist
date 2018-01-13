@@ -2,9 +2,9 @@
   <div id="app">
     <app-header :loggedIn="loggedIn" :user="loggedInUser"></app-header>
     <div class="main">
-      <router-view :loggedIn="loggedIn" />
+      <router-view :loggedIn="loggedIn" :user="loggedInUser" />
     </div>
-    <app-footer></app-footer>
+    <app-footer :user="loggedInUser"></app-footer>
   </div>
 </template>
 

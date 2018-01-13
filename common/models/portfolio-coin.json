@@ -9,6 +9,11 @@
   "mixins": {
     "TimeStamp": true
   },
+  "scope": {
+    "include": [
+      "Coin"
+    ]
+  },  
   "properties": {
     "quantity": {
       "type": "number"
@@ -34,7 +39,7 @@
   },
   "validations": [],
   "relations": {
-    "coin": {
+    "Coin": {
       "type": "belongsTo",
       "model": "Coin",
       "foreignKey": "coinId"
