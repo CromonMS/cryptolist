@@ -33,6 +33,7 @@ export default {
   },
   created () {
     this.$store.dispatch('coins/loadCoins', {endpoint: 'Coins'}, {root: true})
+    this.$store.dispatch('faucets/loadFaucets', {endpoint: 'Faucets'}, {root: true})
     // eventbus.$on('successfullLogin', event => {
     //   this.$store.dispatch('auth/setLoggedIn', {root: true})
     // })

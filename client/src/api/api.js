@@ -17,10 +17,10 @@ export const createNewRecord = (payload) => {
   // send in payload.model (model name) # User
   // send in payload.record (new record) # newUser
   // send in payload.endpoint (api endpoint) # Members
-  const obj = {}
-  obj[payload.model] = payload.record
+  // const obj = {}
+  // obj[payload.model] = payload.record
   console.log('api', payload)
-  return axios.post(API_URL + payload.endpoint, obj)
+  return axios.post(API_URL + payload.endpoint, payload.record)
 }
 
 // Members specific methods

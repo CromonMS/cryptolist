@@ -10,6 +10,7 @@ import Cookies from 'js-cookie'
 
 import auth from './modules/auth'
 import coins from './modules/coins'
+import faucets from './modules/faucets'
 import users from './modules/users'
 import utility from './modules/utility'
 
@@ -21,6 +22,7 @@ const store = new Vuex.Store({
   modules: {
     auth: auth,
     coins: coins,
+    faucets: faucets,
     users: users,
     utility: utility
   },

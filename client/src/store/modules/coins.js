@@ -13,8 +13,7 @@ import {
 } from '../../api/api'
 
 const state = {
-  coins: [],
-  newCoin: {}
+  coins: []
 }
 
 const getters = {
