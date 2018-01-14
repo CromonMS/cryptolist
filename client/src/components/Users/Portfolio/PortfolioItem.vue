@@ -1,35 +1,99 @@
 <template>
-  <tbody>
+  <tbody class="table">
     <tr>
       <td>{{ coin.Coin.imageUrl || ''  }}</td>
       <td>{{ coin.Coin.name }}</td>
-      <td>{{ coin.quantity }}</td>
+      <td>
+        <span v-if="!showEditQuantity" @dblclick="showEditQuantity = !showEditQuantity" title="Double Click to Edit">
+          {{ coin.quantity }}
+        </span>
+        <!-- <span v-else @keydown.enter="showEditQuantity = !showEditQuantity"> -->
+        <span v-else @keydown.enter="changeCoinQuantity">
+          <div class="field has-addons">
+            <div class="control is-expanded">
+              <input class="input is-small" name="" v-model="coin.quantity">
+            </div>
+            <div class="control is-expanded">
+              <button class="button is-danger is-small" @click="changeCoinQuantity">
+                <i class="fa fa-check"></i>
+              </button>
+              <button class="button is-info is-small" @click="showEditQuantity = !showEditQuantity">
+                <i class="fa fa-times"></i>
+              </button>
+            </div>
+          </div>
+        </span>
+      </td>
       <td class="is-info"><i class="fa fa-btc"></i> {{ btcPrice }}</td>
-      <td>{{ }}</td>
+      <td>{{  }}</td>
       <td class="is-success"><i class="fa fa-btc"></i> {{ coin.quantity * btcPrice }}</td>
-      <td class="is-warning has-text-centered">
-        <a class="has-text-white" @click.prevent="showExtendedInfo = !showExtendedInfo">
+      <td class="link has-text-centered" @click="showExtendedInfo = !showExtendedInfo">
+        <a class="has-text-black" title="MORE INFO">
           <i class="fa fa-info" v-if="!showExtendedInfo"></i>
           <i class="fa fa-info-circle" v-else></i>
         </a>
       </td>
-      <td class="is-danger has-text-centered">
-        <i class="icon is-danger fa fa-minus"></i>
-        <i class="icon is-danger fa fa-pencil"></i>        
+      <td class="link is-info has-text-centered" @click="editAllCoinDetails">
+        <i class="is-danger fa fa-pencil" :class="{'fa-spin fa-spinner': editing}" title="EDIT"></i>
+      </td>
+      <td class="link is-danger has-text-centered" @click="removeCoinFromPortfolio">
+        <i class="is-danger fa fa-minus" title="REMOVE"></i>
       </td>
     </tr>
     <tr v-if="showExtendedInfo">
+      <td></td>
       <td><b>Address:</b></td>
-      <td colspan="2">{{ coin.address }}</td>
+      <td colspan="2">
+        <span v-if="!showEditAddress && coin.address" @dblclick="showEditAddress = !showEditAddress" title="Double Click to Edit">
+          {{ coin.address }}
+        </span>
+        <span v-else @keydown.enter="showEditAddress = !showEditAddress">
+          <div class="field has-addons">
+            <div class="control is-expanded">
+              <input class="input is-small" name="" v-model="coin.address">
+            </div>
+            <div class="control">
+              <button class="button is-danger is-small" @click="showEditAddress = !showEditAddress">
+                <i class="fa fa-check"></i>
+              </button>
+              <button class="button is-info is-small" @click="showEditAddress = !showEditAddress">
+                <i class="fa fa-times"></i>
+              </button>
+            </div>
+          </div>
+        </span>
+      </td>
       <td><b>Location:</b></td>
-      <td colspan="2">{{ coin.location }}</td>
+      <td colspan="2">
+        <span v-if="!showEditLocation" @dblclick="showEditLocation = !showEditLocation" title="Double Click to Edit">
+          {{ coin.location }}
+        </span>
+        <span v-else @keydown.enter="showEditLocation = !showEditLocation">
+          <div class="field has-addons">
+            <div class="control is-expanded">
+              <input class="input is-small" name="" v-model="coin.location">
+            </div>
+            <div class="control">
+              <button class="button is-danger is-small" @click="showEditLocation = !showEditLocation">
+                <i class="fa fa-check"></i>
+              </button>
+              <button class="button is-info is-small" @click="showEditLocation = !showEditLocation">
+                <i class="fa fa-times"></i>
+              </button>
+            </div>
+          </div>
+        </span>
+      </td>
     </tr>
   </tbody>
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
+import mixins from '@/mixins/index'
+
 export default {
+  mixins: [ mixins ],
   name: 'PortfolioItem',
   props: {
     coin: {
@@ -42,24 +106,47 @@ export default {
   data () {
     return {
       btcPrice: null,
-      showExtendedInfo: false
+      showExtendedInfo: false,
+      showEditQuantity: false,
+      showEditAddress: false,
+      showEditLocation: false,
+      editing: false
     }
   },
   methods: {
-    coinPrice () {
-      const api = 'https://min-api.cryptocompare.com/data/price?fsym='
-      return axios.get(api + this.coin.Coin.symbol + '&tsyms=BTC').then(response => {
+    editQuantity () {
+
+    },
+    getCoinPrice () {
+      this.coinPrice(this.coin.Coin.symbol).then(response => {
         this.btcPrice = response.data.BTC
       }).catch(error => {
-        console.log(error)
+        console.log('getcoin', error)
       })
+    },
+    changeCoinQuantity () {
+      this.showEditQuantity = !this.showEditQuantity
+      this.$store.dispatch('user/updatePortfolioCoin', {endpoint: 'PortfolioCoins/', id: this.coin.id, record: this.coin})
+    },
+    editAllCoinDetails () {
+      this.editing = !this.editing
+      this.showExtendedInfo = !this.showExtendedInfo
+      this.showEditQuantity = !this.showEditQuantity
+      this.showEditAddress = !this.showEditAddress
+      this.showEditLocation = !this.showEditLocation
+    },
+    removeCoinFromPortfolio () {
+      console.log(this.coin.id)
     }
   },
   created () {
-    this.coinPrice()
+    this.getCoinPrice()
   }
 }
 </script>
 
 <style lang="css" scoped>
+tr {
+  border-bottom: 1px solid lightgrey;
+}
 </style>

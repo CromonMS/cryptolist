@@ -4,7 +4,7 @@
 
 import {
   getAllRecords,
-  createNewRecord
+  addNewRecord
   // getRecord
   // searchRecords,
   // updateRecord,
@@ -42,7 +42,7 @@ const actions = {
   loadFaucet ({commit, dispatch}, payload) {
   },
   addNewFaucet ({commit, dispatch}, payload) {
-    createNewRecord(payload).then(response => {
+    addNewRecord(payload).then(response => {
       console.log('resp', response)
       commit('ADD_NEW_FAUCET', response.data)
     }).catch(error => {

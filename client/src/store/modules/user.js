@@ -7,7 +7,10 @@
 import {
   getUser,
   loginUser,
-  logoutUser
+  logoutUser,
+  addNewRecord,
+  updateRecord,
+  deleteRecord
 } from '../../api/api'
 
 const state = {
@@ -45,6 +48,9 @@ const mutations = {
   },
   'ADD_COIN_TO_PORTFOIO' (state, payload) {
     state.user.Portfolio[0].PortfolioCoins.push(payload)
+  },
+  'UPDATE_USER_PROFILE' (state, payload) {
+    state.user.Portfolio[0].PortfolioCoins[payload.id] = payload
   }
 }
 
@@ -89,7 +95,29 @@ const actions = {
     // })
   },
   addCoinToPortfolio ({commit, dispatch}, payload) {
-    commit('ADD_COIN_TO_PORTFOIO', payload)
+    addNewRecord(payload).then((response) => {
+      console.log(response)
+      commit('UPDATE_USER_PROFILE', response.data)
+      commit('ADD_COIN_TO_PORTFOIO', response.data)
+    }).catch(error => {
+      console.log(error)
+    })
+  },
+  updatePortfolioCoin ({commit, dispatch}, payload) {
+    updateRecord(payload).then((response) => {
+      commit('UPDATE_USER_PROFILE', response.data)
+      console.log(response)
+    }).catch(error => {
+      console.log(error)
+    })
+  },
+  deletePortfolioCoin ({commit, dispatch}, payload) {
+    deleteRecord(payload).then((response) => {
+      console.log(response)
+      commit('DELETE_COIN_FROM_PORTFOLIO')
+    }).catch(error => {
+      console.log(error)
+    })
   }
 }
 

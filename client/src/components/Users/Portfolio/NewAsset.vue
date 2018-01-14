@@ -74,7 +74,7 @@ export default {
   },
   methods: {
     addNewAsset () {
-      this.$store.dispatch('user/addCoinToPortfolio', this.newAsset, {root: true})
+      this.$store.dispatch('user/addCoinToPortfolio', {endpoint: 'PortfolioCoins/', record: this.newAsset}, {root: true})
     }
   },
   computed: {

@@ -13,14 +13,16 @@ export const getRecord = (payload) => {
   return axios.get(API_URL + payload.endpoint + payload.id)
 }
 
-export const createNewRecord = (payload) => {
-  // send in payload.model (model name) # User
-  // send in payload.record (new record) # newUser
-  // send in payload.endpoint (api endpoint) # Members
-  // const obj = {}
-  // obj[payload.model] = payload.record
-  console.log('api', payload)
+export const updateRecord = (payload) => {
+  return axios.patch(API_URL + payload.endpoint + payload.id, payload.record)
+}
+
+export const addNewRecord = (payload) => {
   return axios.post(API_URL + payload.endpoint, payload.record)
+}
+
+export const deleteRecord = (payload) => {
+  return axios.delete(API_URL + payload.endpoint + payload.id)
 }
 
 // Members specific methods

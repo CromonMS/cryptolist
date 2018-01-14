@@ -15,6 +15,7 @@
           <p><a href="" title="">Terms</a></p>
           <p><a href="" title="">Privacy Policy</a></p>
           <p><a href="" title="">Contact</a></p>
+          <p><a href="https://github.com/CromonMS/cryptolist" target="_blank" title="github"><i class="fa fa-github"></i></a></p>
         </div>
       </div>
     </div>
