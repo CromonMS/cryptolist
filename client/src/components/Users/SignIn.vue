@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     signIn () {
-      this.$store.dispatch('auth/loginUser', {user: this.user}, {root: true})
+      this.$store.dispatch('user/loginUser', {user: this.user}, {root: true})
     },
     clearForm () {
       this.user.email = ''

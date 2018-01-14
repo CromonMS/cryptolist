@@ -1,6 +1,6 @@
 <template>
-  <div id="is-bordered" class="container">
-    <h3 class="subtitle">Add New Faucet</h3>
+  <div id="is-bordered" class="content">
+    <h3>Add New Faucet</h3>
     <div class="field is-horizontal">
       <div class="field-body">
         <div class="field">
@@ -50,8 +50,6 @@
         <button class="button is-danger" @click.prevent="addNewFaucet">SUBMIT</button>
       </div>
     </div>
-    <br>
-    <br>
   </div>
 </template>
 

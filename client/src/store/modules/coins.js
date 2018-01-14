@@ -19,6 +19,11 @@ const state = {
 const getters = {
   coins: state => {
     return state.coins
+  },
+  coin (state) {
+    return (coinId) => {
+      return state.coins[coinId]
+    }
   }
 }
 

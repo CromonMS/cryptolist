@@ -94,7 +94,7 @@ export default {
       })
     },
     logoutUser () {
-      this.$store.dispatch('auth/logoutUser', {root: true})
+      this.$store.dispatch('user/logoutUser', {root: true})
     }
   },
   created () {

@@ -41,6 +41,12 @@ export const populateCoins = () => {
   return axios.post(API_URL + 'populate/' + {doit: true})
 }
 
+// Portfolio Methods
+
 export const loadPortfolio = (payload) => {
   return axios.get(API_URL + 'Portfolios/findOne/?MemberId=' + payload.memberId, {'filter': {'include': 'PortfolioCoins'}})
+}
+
+export const addNewAsset = (payload) => {
+  return axios.post(API_URL + 'Portfolios/' + payload.portfolioId + '/PortfolioCoins', payload.asset)
 }

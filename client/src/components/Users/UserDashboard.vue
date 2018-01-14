@@ -15,11 +15,6 @@
             <li></li>
         </ul>
       </span>
-
-<!--       <br>
-      User: <pre>{{ user }}</pre>
-      <br>
-      Portfolio: <pre>{{ user.Portfolio }}</pre> -->
     </div>
   </section>
 </template>

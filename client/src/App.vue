@@ -43,10 +43,10 @@ export default {
   },
   computed: {
     loggedInUser () {
-      return this.$store.getters['auth/user']
+      return this.$store.getters['user/user']
     },
     loggedIn () {
-      return this.$store.getters['auth/loggedIn']
+      return this.$store.getters['user/loggedIn']
     }
   },
   watch: {
