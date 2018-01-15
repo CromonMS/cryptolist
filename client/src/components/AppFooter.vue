@@ -11,10 +11,10 @@
         </div>
         <div class="column">
           <h3 class="subtitle">Links</h3>
-          <p><a href="" title="">FAQ</a></p>
-          <p><a href="" title="">Terms</a></p>
-          <p><a href="" title="">Privacy Policy</a></p>
-          <p><a href="" title="">Contact</a></p>
+          <p><a href="#/faq" title="FAQs" @click="topOfWindow">FAQ</a></p>
+          <p><a href="#/terms" title="Terms &amp; Conditions" @click="topOfWindow">Terms</a></p>
+          <p><a href="#/privacy_policy" title="Privacy Policy" @click="topOfWindow">Privacy Policy</a></p>
+          <p><a href="#/contact" title="Contact Us" @click="topOfWindow">Contact</a></p>
           <p><a href="https://github.com/CromonMS/cryptolist" target="_blank" title="github"><i class="fa fa-github"></i></a></p>
         </div>
       </div>
@@ -23,14 +23,10 @@
 </template>
 
 <script>
+import mixins from '@/mixins/index'
 export default {
   name: 'AppFooter',
-
-  data () {
-    return {
-
-    }
-  }
+  mixins: [ mixins ]
 }
 </script>
 

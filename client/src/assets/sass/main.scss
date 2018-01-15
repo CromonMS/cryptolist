@@ -4,10 +4,10 @@
   min-height: 100vh;
 }
 
-.table {
-  // overflow: scroll;
+.table-wrapper {
+  overflow: auto;
 }
 
-td.link {
+.link {
   cursor: pointer;
 }

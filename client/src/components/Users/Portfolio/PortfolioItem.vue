@@ -44,7 +44,7 @@
       <td></td>
       <td><b>Address:</b></td>
       <td colspan="2">
-        <span v-if="!showEditAddress && coin.address" @dblclick="showEditAddress = !showEditAddress" title="Double Click to Edit">
+        <span v-if="!showEditAddress" @dblclick="showEditAddress = !showEditAddress" title="Double Click to Edit">
           {{ coin.address }}
         </span>
         <span v-else @keydown.enter="showEditAddress = !showEditAddress">

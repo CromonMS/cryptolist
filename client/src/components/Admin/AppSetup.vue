@@ -1,5 +1,5 @@
 <template>
-  <div class="container is-fluid">
+<!--   <div class="container is-fluid">
     <div class="container">
       <div class="title">Please add an Admin User</div>
       <div class="file has-name">
@@ -46,7 +46,7 @@
           <button class="button is-link is-danger" @click.prevent="clearForm">CANCEL</button>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="container">
       <hr>
       <div class="title">Populate Coins</div>

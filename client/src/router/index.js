@@ -27,6 +27,12 @@ import FaucetsIndex from '@/components/Faucets/FaucetsIndex'
 import SignIn from '@/components/Users/SignIn'
 import SignUp from '@/components/Users/SignUp'
 
+// Pages
+import Contact from '@/components/Pages/Contact'
+import Faq from '@/components/Pages/Faq'
+import PrivacyPolicy from '@/components/Pages/PrivacyPolicy'
+import Terms from '@/components/Pages/Terms'
+
 Vue.use(Router)
 
 export default new Router({
@@ -105,6 +111,26 @@ export default new Router({
       path: '/signup',
       name: 'SignUp',
       component: SignUp
+    },
+    {
+      path: '/contact',
+      name: 'Contact',
+      component: Contact
+    },
+    {
+      path: '/faq',
+      name: 'Faq',
+      component: Faq
+    },
+    {
+      path: '/privacy_policy',
+      name: 'PrivacyPolicy',
+      component: PrivacyPolicy
+    },
+    {
+      path: '/terms',
+      name: 'Terms',
+      component: Terms
     }
   ]
 })

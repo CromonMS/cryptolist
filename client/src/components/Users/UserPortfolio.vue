@@ -23,7 +23,7 @@
       <div class="content">
         <new-asset v-if="showNew" :user="user"></new-asset>
       </div>
-      <div class="content">
+      <div class="content table-wrapper">
         <portfolio-list :user="user"></portfolio-list>
       </div>
     </div>
@@ -50,14 +50,14 @@ export default {
   data () {
     return {
       showNew: false,
-      totalPortfolioBtcValue: null
+      totalPortfolioBtcValue: null,
+      lastUpdated: Date.now()
     }
   },
   methods: {
     portfolioValue () {
       let value = 0
       this.user.Portfolio[0].PortfolioCoins.map((coin) => {
-        console.log('coin', coin)
         this.coinPrice(coin.Coin.symbol).then(response => {
           let btcCoinPrice = response.data.BTC * coin.quantity
           value += btcCoinPrice
@@ -74,8 +74,6 @@ export default {
         this.portfolioValue()
       }
     }
-  },
-  computed: {
   },
   created () {
     this.portfolioValue()

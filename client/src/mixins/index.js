@@ -11,6 +11,13 @@ export default {
       // Returns a Promise
       const api = 'https://min-api.cryptocompare.com/data/price?fsym='
       return axios.get(api + symbol + '&tsyms=BTC')
+    },
+    topOfWindow: () => {
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+      })
     }
   }
 }
