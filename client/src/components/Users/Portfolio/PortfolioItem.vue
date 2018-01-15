@@ -44,8 +44,12 @@
       <td></td>
       <td><b>Address:</b></td>
       <td colspan="2">
-        <span v-if="!showEditAddress" @dblclick="showEditAddress = !showEditAddress" title="Double Click to Edit">
-          {{ coin.address }}
+        <span v-if="!showEditAddress && coin.address === ''" @dblclick="showEditAddress = !showEditAddress" title="Double Click to Edit">
+          Double Click to Edit
+        </span>
+        <span v-else-if="!showEditAddress" @click="copyToClipboard" @dblclick="showEditAddress = !showEditAddress" :title="coin.address" id="coinAddress">
+          <span v-if="coin.address.length <= 34">{{ coin.address }}</span>
+          <span v-else>{{ coin.address.substring(0, 34).concat('...') }}</span>
         </span>
         <span v-else @keydown.enter="showEditAddress = !showEditAddress">
           <div class="field has-addons">
@@ -137,6 +141,16 @@ export default {
     },
     removeCoinFromPortfolio () {
       console.log(this.coin.id)
+    },
+    copyToClipboard () {
+      this.$copyText(this.coin.address).then((e) => {
+        // alert('Address Copied to Clipboard')
+        console.log('Address Copied to Clipboard', e)
+      }, (e) => {
+        alert('error')
+        console.log(e)
+      })
+      console.log(this.coin.address)
     }
   },
   created () {
