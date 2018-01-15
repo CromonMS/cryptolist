@@ -6,7 +6,7 @@
         <div class="field">
           <div class="control">
             <label class="label">Select Asset</label>
-            <v-select v-model="newAsset.Coin" :options="coins" label="name"></v-select> <span v-if="newAsset.coin">{{ newAsset.coin.symbol }}</span>
+            <v-select v-model="newAsset.Coin" :options="coins" label="name"></v-select> <span v-if="newAsset.Coin">{{ newAsset.Coin.symbol }}</span>
           </div>
         </div>
         <div class="field is-horizontal">
@@ -59,7 +59,9 @@ export default {
     vSelect
   },
   props: {
-
+    user: {
+      type: Object
+    }
   },
   data () {
     return {
@@ -68,7 +70,8 @@ export default {
         quantity: '',
         address: '',
         location: '',
-        date: ''
+        date: '',
+        portfolioId: this.user.Portfolio[0].id
       }
     }
   },

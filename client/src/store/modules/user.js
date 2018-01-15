@@ -97,7 +97,7 @@ const actions = {
   addCoinToPortfolio ({commit, dispatch}, payload) {
     addNewRecord(payload).then((response) => {
       console.log(response)
-      commit('UPDATE_USER_PROFILE', response.data)
+      response.data.Coin = payload.record.Coin
       commit('ADD_COIN_TO_PORTFOIO', response.data)
     }).catch(error => {
       console.log(error)

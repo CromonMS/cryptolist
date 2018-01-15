@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="content">
-        <new-asset v-if="showNew"></new-asset>
+        <new-asset v-if="showNew" :user="user"></new-asset>
       </div>
       <div class="content">
         <portfolio-list :user="user"></portfolio-list>
