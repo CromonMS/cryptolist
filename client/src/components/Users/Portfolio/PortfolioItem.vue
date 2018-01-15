@@ -43,13 +43,14 @@
     <tr v-if="showExtendedInfo">
       <td></td>
       <td><b>Address:</b></td>
-      <td colspan="2">
+      <td colspan="2" :class="{'is-danger opaque': clicked === true}">
         <span v-if="!showEditAddress && coin.address === ''" @dblclick="showEditAddress = !showEditAddress" title="Double Click to Edit">
           Double Click to Edit
         </span>
-        <span v-else-if="!showEditAddress" @click="copyToClipboard" @dblclick="showEditAddress = !showEditAddress" :title="coin.address" id="coinAddress">
+        <span v-else-if="!showEditAddress" @dblclick="showEditAddress = !showEditAddress" title="Click to Copy, Dbl Click to Edit">
           <span v-if="coin.address.length <= 34">{{ coin.address }}</span>
-          <span v-else>{{ coin.address.substring(0, 34).concat('...') }}</span>
+          <span v-else>{{ coin.address.substring(0, 34).concat('..') }}</span>
+          <i class="fa fa-clipboard link" @click="copyToClipboard"></i>
         </span>
         <span v-else @keydown.enter="showEditAddress = !showEditAddress">
           <div class="field has-addons">
@@ -114,7 +115,8 @@ export default {
       showEditQuantity: false,
       showEditAddress: false,
       showEditLocation: false,
-      editing: false
+      editing: false,
+      clicked: false
     }
   },
   methods: {
@@ -143,14 +145,16 @@ export default {
       console.log(this.coin.id)
     },
     copyToClipboard () {
+      this.clicked = true
       this.$copyText(this.coin.address).then((e) => {
-        // alert('Address Copied to Clipboard')
         console.log('Address Copied to Clipboard', e)
       }, (e) => {
-        alert('error')
         console.log(e)
       })
       console.log(this.coin.address)
+      setTimeout(() => {
+        this.clicked = false
+      }, 200)
     }
   },
   created () {
@@ -162,5 +166,9 @@ export default {
 <style lang="css" scoped>
 tr {
   border-bottom: 1px solid lightgrey;
+}
+.opaque {
+  opacity: 0.4;
+  transition: opacity 0.2s ease-in-out;
 }
 </style>
