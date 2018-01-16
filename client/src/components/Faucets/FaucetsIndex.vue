@@ -4,14 +4,16 @@
       <h2 class="title">Faucets</h2>
       <p>A selection of Faucets to get free coins from.</p>
       <p>A Faucet is a reward system where users can claim free coins via captcha or a task.</p>
-      <faucets-list :faucets="faucets" :user="user"></faucets-list>
+      <faucets-list :faucets="faucets" :user="user" :isAdmin="isAdmin"></faucets-list>
     </div>
   </section>
 </template>
 
 <script>
+import { isAdmin } from '@/mixins/'
 import FaucetsList from './FaucetsList'
 export default {
+  mixins: [isAdmin],
   name: 'FaucetIndex',
   components: {
     FaucetsList
@@ -19,11 +21,6 @@ export default {
   props: {
     user: {
       type: Object
-    }
-  },
-  data () {
-    return {
-
     }
   },
   computed: {

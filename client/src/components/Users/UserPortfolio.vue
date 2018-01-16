@@ -31,12 +31,12 @@
 </template>
 
 <script>
-import mixins from '@/mixins/index'
+import { coinPrice } from '@/mixins/index'
 import NewAsset from './Portfolio/NewAsset'
 import PortfolioList from './Portfolio/PortfolioList'
 export default {
   name: 'UserPortfolio',
-  mixins: [ mixins ],
+  mixins: [coinPrice],
   components: {
     NewAsset,
     PortfolioList

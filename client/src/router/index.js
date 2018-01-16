@@ -17,8 +17,9 @@ import NewsPostAdmin from '@/components/Admin/NewsPostAdmin'
 import UserAdmin from '@/components/Admin/UserAdmin'
 
 // User Componenets
-import UserPortfolio from '@/components/Users/UserPortfolio'
 import UserDashboard from '@/components/Users/UserDashboard'
+import UserPortfolio from '@/components/Users/UserPortfolio'
+import UserProfile from '@/components/Users/UserProfile'
 
 // Public Components
 import CoinsIndex from '@/components/Coins/CoinsIndex'
@@ -81,6 +82,11 @@ export default new Router({
       path: '/user/portfolio',
       name: 'UserPortfolio',
       component: UserPortfolio
+    },
+    {
+      path: '/user/profile',
+      name: 'UserProfile',
+      component: UserProfile
     },
     {
       path: '/news',

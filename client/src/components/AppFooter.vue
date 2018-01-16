@@ -23,10 +23,10 @@
 </template>
 
 <script>
-import mixins from '@/mixins/index'
+import { utilities } from '@/mixins/index'
 export default {
   name: 'AppFooter',
-  mixins: [ mixins ]
+  mixins: [utilities]
 }
 </script>
 

@@ -13,7 +13,7 @@
           <th v-if="isAdmin" colspan="2">Actions</th>
         </tr>
       </thead>
-      <faucet-item v-for="(faucet, index) in faucets" :faucet="faucet" :key="index" :isAdmin="isAdmin"></faucet-item>
+      <faucet-item v-for="(faucet, index) in faucets" :faucet="faucet" :key="index" :user="user" :isAdmin="isAdmin"></faucet-item>
     </table>
   </div>
 </template>
@@ -32,15 +32,9 @@ export default {
     },
     user: {
       type: Object
-    }
-  },
-  data () {
-    return {
-    }
-  },
-  computed: {
-    isAdmin () {
-      return this.user && this.user.Role[0].name === 'admin'
+    },
+    isAdmin: {
+      type: Boolean
     }
   }
 }

@@ -1,41 +1,42 @@
 <template>
   <section class="section">
     <div class="container">
-      <h2 class="title">Coins</h2>
-      Total Listed Coins {{ coins.length }}
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Rank</th>
-            <th>Name</th>
-            <th>Symbol</th>
-            <th>Total Coins</th>
-            <th>Algorithm</th>
-            <th>View</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(coin, index) in sortedCoins">
-            <td>{{ coin.rank }}</td>
-            <td>{{ coin.name }}</td>
-            <td>{{ coin.symbol }}</td>
-            <td>{{ coin.totalCoins }}</td>
-            <td>{{ coin.algorithm }}</td>
-            <td><button class="button is-small is-info" disabled>VIEW</button></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="content">
+        <h2 class="title">Coins</h2>
+        Total Listed Coins {{ coins.length }}
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Name</th>
+              <th>Symbol</th>
+              <th>Total Coins</th>
+              <th>Algorithm</th>
+              <th>View</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(coin, index) in sortedCoins">
+              <td>{{ coin.rank }}</td>
+              <td>{{ coin.name }}</td>
+              <td>{{ coin.symbol }}</td>
+              <td>{{ coin.totalCoins }}</td>
+              <td>{{ coin.algorithm }}</td>
+              <td><button class="button is-small is-info" disabled>VIEW</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
+import CoinsList from './CoinsList'
 export default {
-  name: 'CoinListIndex',
-  data () {
-    return {
-
-    }
+  name: 'CoinsIndex',
+  components: {
+    CoinsList
   },
   computed: {
     coins () {

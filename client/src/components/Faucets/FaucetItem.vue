@@ -30,12 +30,13 @@
 </template>
 
 <script>
-import mixins from '@/mixins/index'
 export default {
-  mixins: [ mixins ],
   name: 'FaucetItem',
   props: {
     faucet: {
+      type: Object
+    },
+    user: {
       type: Object
     },
     isAdmin: {

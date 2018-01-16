@@ -31,6 +31,9 @@ export default {
     },
     user: {
       type: Object
+    },
+    isAdmin: {
+      type: Boolean
     }
   },
   data () {

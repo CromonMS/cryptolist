@@ -95,9 +95,9 @@
 
 <script>
 // import axios from 'axios'
-import mixins from '@/mixins/index'
+import { coinPrice } from '@/mixins/index'
 export default {
-  mixins: [ mixins ],
+  mixins: [coinPrice],
   name: 'PortfolioItem',
   props: {
     coin: {

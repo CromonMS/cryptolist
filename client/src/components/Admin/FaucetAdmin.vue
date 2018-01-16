@@ -13,16 +13,18 @@
         </div>
       </div>
       <div class="content">
-        <faucets-list :faucets="faucets" :user="user"></faucets-list>
+        <faucets-list :faucets="faucets" :user="user" :isAdmin="isAdmin"></faucets-list>
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import { isAdmin } from '@/mixins/'
 import FaucetsList from '@/components/Faucets/FaucetsList'
 import NewFaucet from './Faucets/NewFaucet'
 export default {
+  mixins: [isAdmin],
   name: 'FaucetAdmin',
   components: {
     FaucetsList,
