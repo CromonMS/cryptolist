@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content table-wrapper">
     <table class="table is-narrow is-hoverable">
       <thead>
         <tr>

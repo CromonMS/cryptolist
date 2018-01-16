@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <notifications></notifications>
+    <errors></errors>
     <app-header :loggedIn="loggedIn" :user="loggedInUser"></app-header>
     <div class="main">
       <router-view :loggedIn="loggedIn" :user="loggedInUser" />
@@ -9,14 +11,18 @@
 </template>
 
 <script>
-import AppHeader from '@/components/AppHeader'
 import AppFooter from '@/components/AppFooter'
+import AppHeader from '@/components/AppHeader'
+import Errors from '@/components/Errors'
+import Notifications from '@/components/Notifications'
 // import { eventbus } from '@/eventbus'
 
 export default {
   components: {
+    AppFooter,
     AppHeader,
-    AppFooter
+    Errors,
+    Notifications
   },
   name: 'app',
   data () {
@@ -32,7 +38,6 @@ export default {
     }
   },
   created () {
-    this.$store.dispatch('coins/loadCoins', {endpoint: 'Coins'}, {root: true})
     this.$store.dispatch('faucets/loadFaucets', {endpoint: 'Faucets'}, {root: true})
     // eventbus.$on('successfullLogin', event => {
     //   this.$store.dispatch('auth/setLoggedIn', {root: true})

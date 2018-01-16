@@ -2,12 +2,12 @@
   <div class="container">
     <transition name="notification">
       <div
-        class="notification is-success"
-        v-if="notification"
-        @click="resetNotification">
-        <button class="delete" @click="resetNotification"></button>
+        class="notification is-danger"
+        v-if="error"
+        @click="resetError">
+        <button class="delete" @click="resetError"></button>
         <div>
-          {{ notification }}
+          {{ error }}
         </div>
       </div>
     </transition>
@@ -18,13 +18,13 @@
 export default {
   name: 'Notifications',
   methods: {
-    resetNotification () {
-      return this.$store.dispatch('utility/clearNotification')
+    resetError () {
+      return this.$store.dispatch('utility/clearError')
     }
   },
   computed: {
-    notification () {
-      return this.$store.getters['utility/notification']
+    error () {
+      return this.$store.getters['utility/error']
     }
   }
 }
@@ -46,10 +46,10 @@ export default {
   border-radius: 3px;
   color: #FFF;
   cursor: pointer;
-  top: 7%;
+  left: 10%;
   padding: 0.2rem 1rem 1rem 1rem;
   position: fixed;
-  right: 10%;
+  top: 7%;
   width: 400px;
   z-index: 99999;
 }

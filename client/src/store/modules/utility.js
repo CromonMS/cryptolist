@@ -4,7 +4,7 @@
 
 const state = {
   notification: '',
-  errors: [],
+  error: '',
   loading: false,
   pagination: {
     page: '',
@@ -14,8 +14,8 @@ const state = {
 }
 
 const getters = {
-  errors: state => {
-    return state.errors
+  error: state => {
+    return state.error
   },
   notification: state => {
     return state.notification
@@ -29,14 +29,14 @@ const getters = {
 }
 
 const mutations = {
-  'COMMIT_ERRORS' (state, payload) {
-    state.errors = payload
-  },
   'COMMIT_ERROR' (state, payload) {
-    state.errors.push(payload)
+    state.error = payload
   },
-  'CLEAR_ERRORS' (state) {
-    state.errors = []
+  'CLEAR_ERROR' (state) {
+    state.error = ''
+  },
+  'COMMIT_NOTIFICATION' (state, payload) {
+    state.notification = payload
   },
   'CLEAR_NOTIFICATION' (state) {
     state.notification = ''
@@ -56,14 +56,14 @@ const mutations = {
 }
 
 const actions = {
-  commitErrors ({commit}, payload) {
-    commit('COMMIT_ERRORS', payload)
-  },
   commitError ({commit}, payload) {
     commit('COMMIT_ERROR', payload)
   },
-  clearErrors ({commit}) {
-    commit('CLEAR_ERRORS')
+  clearError ({commit}) {
+    commit('CLEAR_ERROR')
+  },
+  commitNotification ({commit}, payload) {
+    commit('COMMIT_NOTIFICATION', payload)
   },
   clearNotification ({commit}) {
     commit('CLEAR_NOTIFICATION')

@@ -69,19 +69,18 @@ const actions = {
     const accessToken = getters['accessToken']
     logoutUser(accessToken).then((response) => {
       commit('SET_LOGGED_OUT', accessToken)
-      this.$router.push('/')
+      dispatch('utility/commitError', 'Successfully Logged Out', {root: true})
     }).catch(error => {
       console.log(error)
       dispatch('utility/commitError', error.message, {root: true})
     })
   },
-  loadUser ({commit, dispatch, getters}, payload) {
+  loadUser ({commit, dispatch}, payload) {
     getUser(payload).then((response) => {
-      // const accessToken = getters['user/accessToken']
       console.log('loadUser', response)
       commit('LOAD_USER', response.data)
       commit('SET_LOGGED_IN')
-      // dispatch('users/loadPortfolio', {memberId: response.data.id, accessToken: accessToken}, {root: true})
+      dispatch('utility/commitNotification', 'Successfully Logged In', {root: true})
     }).catch(error => {
       dispatch('utility/commitError', error.message, {root: true})
     })

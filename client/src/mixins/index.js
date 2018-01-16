@@ -15,6 +15,11 @@ export const utilities = {
         behavior: 'smooth'
       })
     }
+  },
+  computed: {
+    loading () {
+      return this.$store.getters['utility/loading']
+    }
   }
 }
 

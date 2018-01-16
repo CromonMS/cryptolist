@@ -35,8 +35,10 @@ const mutations = {
 
 const actions = {
   loadCoins ({commit, dispatch}, payload) {
+    dispatch('utility/setLoading', {}, {root: true})
     getAllRecords(payload).then(response => {
       commit('LOAD_COINS', response.data)
+      dispatch('utility/clearLoading', {}, {root: true})
     }, error => {
       dispatch('utility/commitError', error.body, {root: true})
     })

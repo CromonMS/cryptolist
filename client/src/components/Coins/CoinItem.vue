@@ -1,6 +1,8 @@
 <template>
   <tbody>
     <tr>
+      <!-- <td>{{ coin.imageURL }}</td> -->
+      <td></td>
       <td>{{ coin.rank }}</td>
       <td>{{ coin.name }}</td>
       <td>{{ coin.symbol }}</td>
