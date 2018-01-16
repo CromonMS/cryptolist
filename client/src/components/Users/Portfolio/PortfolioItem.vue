@@ -14,10 +14,10 @@
               <input class="input is-small" name="" v-model="coin.quantity">
             </div>
             <div class="control is-expanded">
-              <button class="button is-danger is-small" @click="changeCoinQuantity">
+              <button class="button is-success is-small" @click="changeCoinQuantity">
                 <i class="fa fa-check"></i>
               </button>
-              <button class="button is-info is-small" @click="showEditQuantity = !showEditQuantity">
+              <button class="button is-danger is-small" @click="showEditQuantity = !showEditQuantity">
                 <i class="fa fa-times"></i>
               </button>
             </div>
@@ -43,7 +43,7 @@
     <tr v-if="showExtendedInfo">
       <td></td>
       <td><b>Address:</b></td>
-      <td colspan="2" :class="{'is-danger opaque': clicked === true}">
+      <td colspan="2" :class="{'is-success opaque': clicked === true}">
         <span v-if="!showEditAddress && coin.address === ''" @dblclick="showEditAddress = !showEditAddress" title="Double Click to Edit">
           Double Click to Edit
         </span>
@@ -58,10 +58,10 @@
               <input class="input is-small" name="" v-model="coin.address">
             </div>
             <div class="control">
-              <button class="button is-danger is-small" @click="showEditAddress = !showEditAddress">
+              <button class="button is-success is-small" @click="showEditAddress = !showEditAddress">
                 <i class="fa fa-check"></i>
               </button>
-              <button class="button is-info is-small" @click="showEditAddress = !showEditAddress">
+              <button class="button is-danger is-small" @click="showEditAddress = !showEditAddress">
                 <i class="fa fa-times"></i>
               </button>
             </div>
@@ -79,10 +79,10 @@
               <input class="input is-small" name="" v-model="coin.location">
             </div>
             <div class="control">
-              <button class="button is-danger is-small" @click="showEditLocation = !showEditLocation">
+              <button class="button is-success is-small" @click="showEditLocation = !showEditLocation">
                 <i class="fa fa-check"></i>
               </button>
-              <button class="button is-info is-small" @click="showEditLocation = !showEditLocation">
+              <button class="button is-danger is-small" @click="showEditLocation = !showEditLocation">
                 <i class="fa fa-times"></i>
               </button>
             </div>
@@ -96,7 +96,6 @@
 <script>
 // import axios from 'axios'
 import mixins from '@/mixins/index'
-
 export default {
   mixins: [ mixins ],
   name: 'PortfolioItem',

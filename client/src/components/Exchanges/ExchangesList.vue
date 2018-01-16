@@ -13,22 +13,21 @@
           <th v-if="isAdmin" colspan="2">Actions</th>
         </tr>
       </thead>
-      <faucet-item v-for="(faucet, index) in faucets" :faucet="faucet" :key="index" :isAdmin="isAdmin"></faucet-item>
+      <exchange-item v-for="(exchange, index) in exchanges" :exchange="exchange" :key="index" :isAdmin="isAdmin"></exchange-item>
     </table>
   </div>
 </template>
 
 <script>
-import FaucetItem from './FaucetItem'
+import ExchangeItem from './ExchangeItem'
 export default {
-  name: 'FaucetList',
+  name: 'ExchangesList',
   components: {
-    FaucetItem
+    ExchangeItem
   },
   props: {
-    faucets: {
-      type: Array,
-      required: true
+    exchanges: {
+      type: Array
     },
     user: {
       type: Object
@@ -36,11 +35,6 @@ export default {
   },
   data () {
     return {
-    }
-  },
-  computed: {
-    isAdmin () {
-      return this.user && this.user.Role[0].name === 'admin'
     }
   }
 }

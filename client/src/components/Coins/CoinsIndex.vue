@@ -1,9 +1,9 @@
 <template>
   <section class="section">
     <div class="container">
+      <h2 class="title">Coins</h2>
       Total Listed Coins {{ coins.length }}
       <table class="table">
-        <caption class="title">Coins List</caption>
         <thead>
           <tr>
             <th>Rank</th>

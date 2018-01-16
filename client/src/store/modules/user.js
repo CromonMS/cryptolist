@@ -64,7 +64,6 @@ const actions = {
     }).catch(error => {
       dispatch('utility/commitError', error.message, {root: true})
     })
-    console.log(payload)
   },
   logoutUser ({commit, dispatch, getters}) {
     const accessToken = getters['accessToken']
