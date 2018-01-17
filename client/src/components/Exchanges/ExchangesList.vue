@@ -39,6 +39,9 @@ export default {
   data () {
     return {
     }
+  },
+  created () {
+    this.$store.dispatch('exchanges/loadExchanges', {endpoint: 'Exchanges'}, {root: true})
   }
 }
 </script>

@@ -13,7 +13,7 @@
     "include": [
       "Coin"
     ]
-  },  
+  },
   "properties": {
     "quantity": {
       "type": "number"

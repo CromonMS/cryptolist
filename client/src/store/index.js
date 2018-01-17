@@ -9,6 +9,7 @@ import createPersistedState from 'vuex-persistedstate'
 import Cookies from 'js-cookie'
 
 import coins from './modules/coins'
+import exchanges from './modules/exchanges'
 import faucets from './modules/faucets'
 import user from './modules/user'
 import users from './modules/users'
@@ -21,6 +22,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   modules: {
     coins: coins,
+    exchanges: exchanges,
     faucets: faucets,
     user: user,
     users: users,

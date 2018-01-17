@@ -8,13 +8,13 @@
           {{ coin.quantity }}
         </span>
         <!-- <span v-else @keydown.enter="showEditQuantity = !showEditQuantity"> -->
-        <span v-else @keydown.enter="changeCoinQuantity">
+        <span v-else @keydown.enter="updateCoin('quantity')">
           <div class="field has-addons">
             <div class="control is-expanded">
               <input class="input is-small" name="" v-model="coin.quantity">
             </div>
             <div class="control is-expanded">
-              <button class="button is-success is-small" @click="changeCoinQuantity">
+              <button class="button is-success is-small" @click="updateCoin('quantity')">
                 <i class="fa fa-check"></i>
               </button>
               <button class="button is-danger is-small" @click="showEditQuantity = !showEditQuantity">
@@ -52,13 +52,13 @@
           <span v-else>{{ coin.address.substring(0, 34).concat('..') }}</span>
           <i class="fa fa-clipboard link" @click="copyToClipboard"></i>
         </span>
-        <span v-else @keydown.enter="showEditAddress = !showEditAddress">
+        <span v-else @keydown.enter="updateCoin('address')">
           <div class="field has-addons">
             <div class="control is-expanded">
               <input class="input is-small" name="" v-model="coin.address">
             </div>
             <div class="control">
-              <button class="button is-success is-small" @click="showEditAddress = !showEditAddress">
+              <button class="button is-success is-small" @click="updateCoin('address')">
                 <i class="fa fa-check"></i>
               </button>
               <button class="button is-danger is-small" @click="showEditAddress = !showEditAddress">
@@ -73,13 +73,13 @@
         <span v-if="!showEditLocation" @dblclick="showEditLocation = !showEditLocation" title="Double Click to Edit">
           {{ coin.location }}
         </span>
-        <span v-else @keydown.enter="showEditLocation = !showEditLocation">
+        <span v-else @keydown.enter="updateCoin('location')">
           <div class="field has-addons">
             <div class="control is-expanded">
               <input class="input is-small" name="" v-model="coin.location">
             </div>
             <div class="control">
-              <button class="button is-success is-small" @click="showEditLocation = !showEditLocation">
+              <button class="button is-success is-small" @click="updateCoin('location')">
                 <i class="fa fa-check"></i>
               </button>
               <button class="button is-danger is-small" @click="showEditLocation = !showEditLocation">
@@ -129,8 +129,19 @@ export default {
         console.log('getcoin', error)
       })
     },
-    changeCoinQuantity () {
-      this.showEditQuantity = !this.showEditQuantity
+    updateCoin (close) {
+      if (close === 'quantity') {
+        this.showEditQuantity = false
+      }
+      if (close === 'address') {
+        this.showEditAddress = false
+      }
+      if (close === 'location') {
+        this.showEditLocation = false
+      }
+      if (close === undefined) {
+        this.editing = false
+      }
       this.$store.dispatch('user/updatePortfolioCoin', {endpoint: 'PortfolioCoins/', id: this.coin.id, record: this.coin})
     },
     editAllCoinDetails () {

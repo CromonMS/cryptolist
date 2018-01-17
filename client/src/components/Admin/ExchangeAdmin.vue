@@ -1,7 +1,9 @@
 <template>
   <section class="section">
     <div class="container">
-      EXCHANGE ADMIN INDEX
+      <div class="content">
+        <h2>Exchanges Admin</h2>
+      </div>
     </div>
   </section>
 </template>

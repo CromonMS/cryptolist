@@ -4,10 +4,10 @@
 
 import {
   getAllRecords,
-  addNewRecord
+  addNewRecord,
+  updateRecord
   // getRecord
   // searchRecords,
-  // updateRecord,
   // deleteRecord,
   // deleteRecords
 } from '../../api/api'
@@ -28,6 +28,9 @@ const mutations = {
   },
   'ADD_NEW_FAUCET' (state, payload) {
     state.faucets.push(payload)
+  },
+  'UPDATE_FAUCET' (state, payload) {
+    state.faucets[payload.id] = payload
   }
 }
 
@@ -47,6 +50,14 @@ const actions = {
       commit('ADD_NEW_FAUCET', response.data)
     }).catch(error => {
       dispatch('utility/commitError', error.body, {root: true})
+    })
+  },
+  updateFaucet ({commit, dispatch}, payload) {
+    updateRecord(payload).then((response) => {
+      commit('UPDATE_FAUCET', response.data)
+      console.log(response)
+    }).catch(error => {
+      console.log(error)
     })
   }
 }

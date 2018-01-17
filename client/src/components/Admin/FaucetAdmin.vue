@@ -2,6 +2,7 @@
   <section class="section">
     <div class="container">
       <div class="content">
+        <h2>Faucets Admin</h2>
         <button class="button is-link" @click.prevent="newFaucet = !newFaucet">
           <span v-if="!newFaucet">ADD NEW</span>
           <span v-if="newFaucet">CLOSE</span>

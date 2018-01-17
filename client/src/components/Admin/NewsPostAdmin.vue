@@ -1,7 +1,9 @@
 <template>
   <section class="section">
     <div class="container">
-      NEWS POST ADMIN INDEX
+      <div class="content">
+        <h2>News Posts Admin</h2>
+      </div>
     </div>
   </section>
 </template>
