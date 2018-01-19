@@ -42,3 +42,6 @@ export const isAdmin = {
     }
   }
 }
+
+export const baseRate = {
+}

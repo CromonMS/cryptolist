@@ -46,10 +46,13 @@ const mutations = {
     state.user = null
     state.accessToken = null
   },
+  'UPDATE_USER' (state, payload) {
+    state.user = payload
+  },
   'ADD_COIN_TO_PORTFOIO' (state, payload) {
     state.user.Portfolio[0].PortfolioCoins.push(payload)
   },
-  'UPDATE_USER_PROFILE' (state, payload) {
+  'UPDATE_USER_PORTFOLIO_COIN' (state, payload) {
     state.user.Portfolio[0].PortfolioCoins[payload.id] = payload
   }
 }
@@ -92,6 +95,16 @@ const actions = {
     //   commit('')
     // })
   },
+  updateUser ({commit, dispatch, getters}, payload) {
+    let accessToken = getters['accessToken']
+    payload.accessToken = accessToken
+    updateRecord(payload).then((response) => {
+      console.log('user', payload)
+      commit('UPDATE_USER', response.data)
+    }).catch(error => {
+      dispatch('utility/commitError', error.message, {root: true})
+    })
+  },
   addCoinToPortfolio ({commit, dispatch}, payload) {
     addNewRecord(payload).then((response) => {
       console.log(response)
@@ -103,7 +116,7 @@ const actions = {
   },
   updatePortfolioCoin ({commit, dispatch}, payload) {
     updateRecord(payload).then((response) => {
-      commit('UPDATE_USER_PROFILE', response.data)
+      commit('UPDATE_USER_PORTFOLIO_COIN', response.data)
       console.log(response)
     }).catch(error => {
       console.log(error)

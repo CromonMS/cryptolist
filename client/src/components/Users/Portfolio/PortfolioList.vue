@@ -10,6 +10,7 @@
             <th>BTC Price</th>
             <th>% of Total</th>
             <th>Value in BTC</th>
+            <th>Value in {{ user.currency }}</th>
             <th></th>
             <th></th>
             <th></th>

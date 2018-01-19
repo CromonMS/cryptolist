@@ -179,6 +179,10 @@ tr {
 }
 .opaque {
   opacity: 0.4;
-  transition: opacity 0.2s ease-in-out;
+  transition: opacity 1.8s cubic-bezier(0.10, 0, 0.68, 1);
+}
+
+@keyframes copyFade {
+
 }
 </style>

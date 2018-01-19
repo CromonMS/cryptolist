@@ -14,7 +14,7 @@ export const getRecord = (payload) => {
 }
 
 export const updateRecord = (payload) => {
-  return axios.patch(API_URL + payload.endpoint + payload.id, payload.record)
+  return axios.patch(API_URL + payload.endpoint + payload.id + '?access_token=' + payload.accessToken, payload.record)
 }
 
 export const addNewRecord = (payload) => {
