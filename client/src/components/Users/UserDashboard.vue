@@ -1,20 +1,31 @@
 <template>
   <section class="section">
     <div class="container" v-if="!loggedIn">
-      ACCESS DENIED
+      <div class="content">
+        ACCESS DENIED
+      </div>
     </div>
     <div class="container" v-else>
-      <user-dashboard-nav></user-dashboard-nav>
-      USER DASHBOARD
-      <br>
-      <!-- {{ user }} -->
-      <span v-for="coin in user.Portfolio[0].PortfolioCoins">
-        <ul>
-            <li>{{ coin.Coin.name }}</li>
-            <li>{{ coin.quantity }}</li>
-            <li></li>
-        </ul>
-      </span>
+      <div class="content">
+        <h2>User Dashboard</h2>
+        <user-dashboard-nav></user-dashboard-nav>
+        <div class="container">
+          <div class="content">
+            <div class="columns">
+              <div class="column is-one-third">
+                PIE CHART OF ASSETS
+              </div>
+              <div class="column">
+                PIE CHART OF LOCATIONS
+              </div>
+              <div class="column">
+                BAR CHART OF BALANCE
+              </div>
+            </div>
+          </div>
+        </div>        
+      </div>
+      <br>  
     </div>
   </section>
 </template>
@@ -37,21 +48,6 @@ export default {
   },
   data () {
     return {
-    }
-  },
-  methods: {
-    coinPrice (coinName) {
-      setTimeout(() => {
-        console.log('name', coinName)
-      }, 3000)
-    }
-  },
-  computed: {
-    // user () {
-    //   return this.$store.getters['auth/user']
-    // },
-    portfolio () {
-      return this.$store.getters['users/portfolio']
     }
   }
 }

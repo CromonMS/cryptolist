@@ -8,6 +8,8 @@ Your personal Crypto currency and asset portfolio tracker
 
 Client uses [Vue](https://vuejs.org)
 
+Styling with [Bulma](https://bulma.io)
+
 Server uses [LoopBack](http://loopback.io)
 
 Database uses MongoDB [MongoDB](https://mongodb.com)

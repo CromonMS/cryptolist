@@ -1,5 +1,6 @@
 {
   "name": "Post",
+  "description": "News Post Model",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {

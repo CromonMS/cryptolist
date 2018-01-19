@@ -24,6 +24,18 @@
     },
     "dob": {
       "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "newsletter": {
+      "type": "boolean"
+    },
+    "reportFrequency": {
+      "type": "string"
     }
   },
   "validations": [],
