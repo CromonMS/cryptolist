@@ -16,7 +16,7 @@
             <th></th>
           </tr>
         </thead>
-        <portfolio-item v-for="(coin, index) in user.Portfolio[0].PortfolioCoins" :coin="coin" :key="index" :portfolio="user.Portfolio[0]"></portfolio-item>
+        <portfolio-item v-for="(coin, index) in user.Portfolio[0].PortfolioCoins" :coin="coin" :key="index" :portfolio="user.Portfolio[0]" :totalPortfolioBtcValue="totalPortfolioBtcValue"></portfolio-item>
       </table>
     </div>
   </div>
@@ -33,6 +33,9 @@ export default {
     user: {
       type: Object,
       required: true
+    },
+    totalPortfolioBtcValue: {
+      type: Number
     }
   }
 }

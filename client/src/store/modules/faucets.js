@@ -39,7 +39,7 @@ const actions = {
     getAllRecords(payload).then(response => {
       commit('LOAD_FAUCETS', response.data)
     }, error => {
-      dispatch('utility/commitError', error.body, {root: true})
+      dispatch('utility/commitError', error.message, {root: true})
     })
   },
   loadFaucet ({commit, dispatch}, payload) {
@@ -49,7 +49,7 @@ const actions = {
       console.log('resp', response)
       commit('ADD_NEW_FAUCET', response.data)
     }).catch(error => {
-      dispatch('utility/commitError', error.body, {root: true})
+      dispatch('utility/commitError', error.message, {root: true})
     })
   },
   updateFaucet ({commit, dispatch}, payload) {

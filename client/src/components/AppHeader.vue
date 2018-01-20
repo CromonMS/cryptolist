@@ -99,7 +99,6 @@ export default {
   },
   created () {
     this.getMarketCap()
-
     document.addEventListener('DOMContentLoaded', () => {
       var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0)
 

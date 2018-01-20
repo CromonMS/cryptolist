@@ -1,14 +1,10 @@
 <template>
-  <section class="section">
-    <div class="container">
-      PORTFOLIO INDEX
-    </div>
-  </section>
 </template>
 
 <script>
 export default {
-  name: 'PortfolioIndex',
+  name: 'NewsPostItem',
+
   data () {
     return {
 

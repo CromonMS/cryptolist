@@ -24,7 +24,7 @@
         <new-asset v-if="showNew" :user="user"></new-asset>
       </div>
       <div class="content table-wrapper">
-        <portfolio-list :user="user"></portfolio-list>
+        <portfolio-list :user="user" :totalPortfolioBtcValue="totalPortfolioBtcValue"></portfolio-list>
       </div>
     </div>
   </section>

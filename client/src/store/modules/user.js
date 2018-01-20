@@ -111,7 +111,7 @@ const actions = {
       response.data.Coin = payload.record.Coin
       commit('ADD_COIN_TO_PORTFOIO', response.data)
     }).catch(error => {
-      console.log(error)
+      dispatch('utility/commitError', error.message, {root: true})
     })
   },
   updatePortfolioCoin ({commit, dispatch}, payload) {
@@ -119,7 +119,7 @@ const actions = {
       commit('UPDATE_USER_PORTFOLIO_COIN', response.data)
       console.log(response)
     }).catch(error => {
-      console.log(error)
+      dispatch('utility/commitError', error.message, {root: true})
     })
   },
   deletePortfolioCoin ({commit, dispatch}, payload) {
@@ -127,7 +127,7 @@ const actions = {
       console.log(response)
       commit('DELETE_COIN_FROM_PORTFOLIO')
     }).catch(error => {
-      console.log(error)
+      dispatch('utility/commitError', error.message, {root: true})
     })
   }
 }

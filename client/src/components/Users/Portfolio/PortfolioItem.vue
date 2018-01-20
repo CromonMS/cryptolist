@@ -25,7 +25,7 @@
         </span>
       </td>
       <td class="is-info"><i class="fa fa-btc"></i> {{ btcPrice }}</td>
-      <td>{{  }}</td>
+      <td>{{ ((coin.quantity * btcPrice) / totalPortfolioBtcValue) * 100 }}</td>
       <td class="is-success"><i class="fa fa-btc"></i> {{ coin.quantity * btcPrice }}</td>
       <td class="link has-text-centered" @click="showExtendedInfo = !showExtendedInfo">
         <a class="has-text-black" title="MORE INFO">
@@ -105,6 +105,9 @@ export default {
     },
     portfolio: {
       type: Object
+    },
+    totalPortfolioBtcValue: {
+      type: Number
     }
   },
   data () {
