@@ -54,6 +54,9 @@ const mutations = {
   },
   'UPDATE_USER_PORTFOLIO_COIN' (state, payload) {
     state.user.Portfolio[0].PortfolioCoins[payload.id] = payload
+  },
+  'DELETE_COIN_FROM_PORTFOLIO' (state, payload) {
+    state.user.Portfolio[0].PortfolioCoins.splice(payload.coin, 1)
   }
 }
 

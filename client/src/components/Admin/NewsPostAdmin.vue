@@ -21,10 +21,12 @@
 </template>
 
 <script>
-import PostsList from './NewsPosts/NewsPostList'
+import PostsList from '@/components/NewsPosts/NewsPostList'
+import NewPost from './NewsPosts/NewPost'
 export default {
   name: 'NewsAdmin',
   components: {
+    NewPost,
     PostsList
   },
   props: {

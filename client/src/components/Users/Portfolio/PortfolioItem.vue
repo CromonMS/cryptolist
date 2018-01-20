@@ -155,6 +155,7 @@ export default {
       this.showEditLocation = !this.showEditLocation
     },
     removeCoinFromPortfolio () {
+      this.$store.dispatch('user/deletePortfolioCoin', {endpoint: 'PortfolioCoins/', coin: this.coin, id: this.coin.id})
       console.log(this.coin.id)
     },
     copyToClipboard () {

@@ -1,5 +1,9 @@
 <template>
-
+  <div class="container">
+    <div class="content">
+      POSTS LIST
+    </div>
+  </div>
 </template>
 
 <script>
@@ -10,8 +14,8 @@ export default {
     NewsPostItem
   },
   props: {
-    post: {
-      type: Object
+    posts: {
+      type: Array
     }
   },
   data () {

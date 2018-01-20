@@ -6,7 +6,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import createPersistedState from 'vuex-persistedstate'
-// import Cookies from 'js-cookie'
+import Cookies from 'js-cookie'
 
 import coins from './modules/coins'
 import exchanges from './modules/exchanges'
@@ -30,19 +30,23 @@ const store = new Vuex.Store({
     users: users,
     utility: utility
   },
-  plugins: [createPersistedState({
-    key: 'cryptolist',
-    paths: ['user']
-  })]
-  // plugins: [createPersistedState({
-  //   key: 'cryptolist',
-  //   paths: ['user'],
-  //   storage: {
-  //     getItem: key => Cookies.get(key),
-  //     setItem: (key, value) => Cookies.set(key, value, { expires: 3, secure: false }),
-  //     removeItem: key => Cookies.remove(key)
-  //   }
-  // })]
+  plugins:
+  // Put user portfolio into localStorage
+  [createPersistedState({
+    key: 'cl_portfolio',
+    paths: ['user.user.Portfolio'],
+    subscriber: store => handler => store.subscribe(handler)
+  }),
+    // Put user access info ino a cookie
+    createPersistedState({
+      key: 'cl_user',
+      paths: ['user.user.Role', 'user.accessToken', 'user.loggedIn'],
+      storage: {
+        getItem: key => Cookies.get(key),
+        setItem: (key, value) => Cookies.set(key, value, { expires: 3, secure: false }),
+        removeItem: key => Cookies.remove(key)
+      }
+    })]
 })
 
 export default store
