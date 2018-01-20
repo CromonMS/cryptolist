@@ -11,3 +11,9 @@
 .link {
   cursor: pointer;
 }
+
+.is-bordered {
+  border: 1px solid #f09;
+  border-radius: 10px;
+  padding: .5rem;
+}

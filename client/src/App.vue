@@ -15,7 +15,6 @@ import AppFooter from '@/components/AppFooter'
 import AppHeader from '@/components/AppHeader'
 import Errors from '@/components/Errors'
 import Notifications from '@/components/Notifications'
-// import { eventbus } from '@/eventbus'
 
 export default {
   components: {
@@ -38,15 +37,10 @@ export default {
     }
   },
   created () {
+    this.$store.dispatch('coins/loadCoins', {endpoint: 'Coins'}, {root: true})
+    this.$store.dispatch('exchanges/loadExchanges', {endpoint: 'Exchanges'}, {root: true})
     this.$store.dispatch('faucets/loadFaucets', {endpoint: 'Faucets'}, {root: true})
     this.$store.dispatch('posts/loadPosts', {endpoint: 'Posts'}, {root: true})
-    this.$store.dispatch('coins/loadCoins', {endpoint: 'Coins'}, {root: true})
-    // eventbus.$on('successfullLogin', event => {
-    //   this.$store.dispatch('auth/setLoggedIn', {root: true})
-    // })
-    // eventbus.$on('successfullLogout', event => {
-    //   this.$store.dispatch('auth/setLoggedOut', {root: true})
-    // })
   },
   computed: {
     loggedInUser () {

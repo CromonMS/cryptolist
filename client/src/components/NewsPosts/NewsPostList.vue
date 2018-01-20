@@ -16,6 +16,12 @@ export default {
   props: {
     posts: {
       type: Array
+    },
+    user: {
+      type: Object
+    },
+    isAdmin: {
+      type: Boolean
     }
   },
   data () {

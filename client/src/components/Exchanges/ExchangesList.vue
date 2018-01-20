@@ -5,15 +5,14 @@
         <tr>
           <th>Name</th>
           <th v-if="isAdmin">URL</th>
-          <th>Timer</th>
-          <th>Reward</th>
-          <th>Coin</th>
-          <th>Active</th>
+          <th>Trading Pairs</th>
+          <th>Location</th>
+          <th>24h Vol</th>
           <th>VISIT</th>
           <th v-if="isAdmin" colspan="2">Actions</th>
         </tr>
       </thead>
-      <exchange-item v-for="(exchange, index) in exchanges" :exchange="exchange" :key="index" :isAdmin="isAdmin"></exchange-item>
+      <exchange-item v-for="(exchange, index) in exchanges" :exchange="exchange" :key="index" :isAdmin="isAdmin" :user="user"></exchange-item>
     </table>
   </div>
 </template>

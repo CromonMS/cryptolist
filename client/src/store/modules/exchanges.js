@@ -4,10 +4,10 @@
 
 import {
   getAllRecords,
-  getRecord
+  getRecord,
+  addNewRecord,
+  updateRecord
   // searchRecords,
-  // createNewRecord,
-  // updateRecord,
   // deleteRecord,
   // deleteRecords
 } from '../../api/api'
@@ -30,6 +30,12 @@ const getters = {
 const mutations = {
   'LOAD_EXCHANGES' (state, payload) {
     state.exchanges = payload
+  },
+  'ADD_NEW_EXCHANGE' (state, payload) {
+    state.exchanges.push(payload)
+  },
+  'UPDATE_EXCHANGE' (state, payload) {
+    state.exchanges[payload.id] = payload
   }
 }
 
@@ -43,8 +49,8 @@ const actions = {
       dispatch('utility/commitError', error.body, {root: true})
     })
   },
-  loadExchange ({commit, dispatch}) {
-    getRecord().then(response => {
+  loadExchange ({commit, dispatch}, payload) {
+    getRecord(payload).then(response => {
       commit('LOAD_EXCHANGE', response.data)
     }, error => {
       dispatch('utility/commitError', error.body, {root: true})
@@ -52,6 +58,20 @@ const actions = {
   },
   populateExchanges ({commit, dispatch}) {
     console.log('populate')
+  },
+  addNewExchange ({commit, dispatch}, payload) {
+    addNewRecord(payload).then(response => {
+      commit('ADD_NEW_EXCHANGE', response.data)
+    }).catch(error => {
+      dispatch('utility/commitError', error.message, {root: true})
+    })
+  },
+  updateFaucet ({commit, dispatch}, payload) {
+    updateRecord(payload).then((response) => {
+      commit('UPDATE_EXCHANGE', response.data)
+    }).catch(error => {
+      dispatch('utility/commitError', error.message, {root: true})
+    })
   }
 }
 

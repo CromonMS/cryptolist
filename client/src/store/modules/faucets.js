@@ -46,7 +46,6 @@ const actions = {
   },
   addNewFaucet ({commit, dispatch}, payload) {
     addNewRecord(payload).then(response => {
-      console.log('resp', response)
       commit('ADD_NEW_FAUCET', response.data)
     }).catch(error => {
       dispatch('utility/commitError', error.message, {root: true})
@@ -55,9 +54,8 @@ const actions = {
   updateFaucet ({commit, dispatch}, payload) {
     updateRecord(payload).then((response) => {
       commit('UPDATE_FAUCET', response.data)
-      console.log(response)
     }).catch(error => {
-      console.log(error)
+      dispatch('utility/commitError', error.message, {root: true})
     })
   }
 }

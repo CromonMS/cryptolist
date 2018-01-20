@@ -10,20 +10,24 @@
         <span v-else-if="faucet.url.length <= 34">{{ faucet.url }}</span>
         <span v-else>{{ faucet.url.substring(0, 26).concat('..') }}</span>
       </td>
-      <td class="is-info">
+      <td>
         <span v-if="editing"><input class="input is-small" type="text" name="name" v-model="faucet.timer"></span>        
-        <span v-else>
-          <i class="fa fa-clock-o"></i>
-          {{ faucet.timer }}
-        </span>
+        <div v-else class="tags has-addons is-info">
+          <i class="tag is-info fa fa-clock-o"></i>
+          <span class="tag is-info">
+            {{ faucet.timer }}
+          </span>
+        </div>
       </td>
-      <td class="is-success">
+      <td class="">
         <span v-if="editing"><input class="input is-small" type="text" name="name" v-model="faucet.reward"></span>
-        <span v-else>
-          <i v-if="faucet.coin === 'BTC'" class="fa fa-btc"></i>
-          <i v-else class="fa fa-money"></i>
-          {{ faucet.reward }}
-        </span>
+        <div v-else class="tags has-addons">
+          <i v-if="faucet.coin === 'BTC'" class="tag is-success fa fa-btc"></i>
+          <i v-else class="tag is-success fa fa-money"></i>
+          <span class="tag is-success">
+            {{ faucet.reward }}
+          </span>
+        </div>
       </td>
       <td>
         <span v-if="editing"><input class="input is-small" type="text" name="name" v-model="faucet.coin"></span>
@@ -43,16 +47,19 @@
         </span>
         <span v-else><i class="fa" :class="{'fa-check': faucet.active === 'true' | true, 'fa-cross': faucet.active === 'false' | false}"></i></span>
       </td>
-      <td class="is-link">
-        <a class="button is-link is-size-7" :href="faucet.url" :title="faucet.name" target="_blank" :name="faucet.name">Visit</a>
+      <td>
+        <a class="tag button is-link is-size-7" :href="faucet.url" :title="faucet.name" target="_blank" :name="faucet.name">Visit</a>
       </td>
-      <td v-if="isAdmin" class="link is-info has-text-centered" @click="editing = !editing">
-        <i v-if="editing" class=""></i>
-        <i class="is-danger fa fa-pencil" :class="{'fa-spin fa-spinner': editing}" title="EDIT"></i>
+      <td v-if="isAdmin" @click="editing = !editing">
+        <span class="tag button is-info">
+          <i class="fa fa-pencil" :class="{'fa-spin fa-spinner': editing}" title="EDIT"></i>
+        </span>
       </td>
-      <td v-if="isAdmin" class="link has-text-centered" :class="{'is-success': editing, 'is-danger': !editing}">
-        <i v-if="editing" class="fa fa-check is-success" @click="updateFaucet"></i>
-        <i v-else class="is-danger fa fa-minus" title="REMOVE"></i>
+      <td v-if="isAdmin">
+        <span class="tag button" :class="{'is-success': editing, 'is-danger': !editing}">
+          <i v-if="editing" class="fa fa-check" @click="updateFaucet"></i>
+          <i v-else class="fa fa-minus" title="REMOVE"></i>
+        </span>
       </td>
     </tr>
   </tbody>

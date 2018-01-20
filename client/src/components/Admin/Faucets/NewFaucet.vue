@@ -1,5 +1,5 @@
 <template>
-  <div id="is-bordered" class="content">
+  <div class="content is-bordered">
     <h3>Add New Faucet</h3>
     <div class="field is-horizontal">
       <div class="field-body">
@@ -87,9 +87,5 @@ export default {
 </script>
 
 <style lang="css" scoped>
-#is-bordered {
-  border: 1px solid #f09;
-  border-radius: 10px;
-  padding: 0.5rem;
-  }
+
 </style>

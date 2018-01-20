@@ -60,5 +60,9 @@
   "Post": {
     "dataSource": "db",
     "public": true
+  },
+  "Exchange": {
+    "dataSource": "db",
+    "public": true
   }
 }
