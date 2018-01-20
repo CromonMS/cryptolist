@@ -56,7 +56,8 @@ const mutations = {
     state.user.Portfolio[0].PortfolioCoins[payload.id] = payload
   },
   'DELETE_COIN_FROM_PORTFOLIO' (state, payload) {
-    state.user.Portfolio[0].PortfolioCoins.splice(payload.coin, 1)
+    let index = state.user.Portfolio[0].PortfolioCoins.indexOf(payload)
+    state.user.Portfolio[0].PortfolioCoins.splice(index, 1)
   }
 }
 
@@ -128,7 +129,7 @@ const actions = {
   deletePortfolioCoin ({commit, dispatch}, payload) {
     deleteRecord(payload).then((response) => {
       console.log(response)
-      commit('DELETE_COIN_FROM_PORTFOLIO')
+      commit('DELETE_COIN_FROM_PORTFOLIO', payload.record)
     }).catch(error => {
       dispatch('utility/commitError', error.message, {root: true})
     })

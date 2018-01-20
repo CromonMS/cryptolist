@@ -13,7 +13,6 @@ import exchanges from './modules/exchanges'
 import faucets from './modules/faucets'
 import posts from './modules/posts'
 import user from './modules/user'
-import users from './modules/users'
 import utility from './modules/utility'
 
 Vue.use(Vuex)
@@ -27,7 +26,6 @@ const store = new Vuex.Store({
     faucets: faucets,
     posts: posts,
     user: user,
-    users: users,
     utility: utility
   },
   plugins:

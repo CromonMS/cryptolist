@@ -145,7 +145,7 @@ export default {
       if (close === undefined) {
         this.editing = false
       }
-      this.$store.dispatch('user/updatePortfolioCoin', {endpoint: 'PortfolioCoins/', id: this.coin.id, record: this.coin})
+      this.$store.dispatch('user/updatePortfolioCoin', {endpoint: 'PortfolioCoins/', id: this.coin.id, record: this.coin}, {root: true})
     },
     editAllCoinDetails () {
       this.editing = !this.editing
@@ -155,7 +155,7 @@ export default {
       this.showEditLocation = !this.showEditLocation
     },
     removeCoinFromPortfolio () {
-      this.$store.dispatch('user/deletePortfolioCoin', {endpoint: 'PortfolioCoins/', coin: this.coin, id: this.coin.id})
+      this.$store.dispatch('user/deletePortfolioCoin', {endpoint: 'PortfolioCoins/', id: this.coin.id, record: this.coin}, {root: true})
       console.log(this.coin.id)
     },
     copyToClipboard () {
