@@ -3,9 +3,9 @@
 'use strict'
 
 import {
-  getAllRecords
-  // addNewRecord,
-  // updateRecord
+  getAllRecords,
+  addNewRecord,
+  updateRecord
   // getRecord
   // searchRecords,
   // deleteRecord,
@@ -25,15 +25,34 @@ const getters = {
 const mutations = {
   'LOAD_POSTS' (state, payload) {
     state.posts = payload
+  },
+  'ADD_NEW_POST' (state, payload) {
+    state.posts.push(payload)
+  },
+  'UPDATE_POST' (state, payload) {
+    state.posts[payload.id] = payload
   }
-
 }
 
 const actions = {
   loadPosts ({commit, dispatch}, payload) {
-    getAllRecords(payload).then(response => {
+    getAllRecords(payload).then((response) => {
       commit('LOAD_POSTS', response.data)
-    }, error => {
+    }).catch(error => {
+      dispatch('utility/commitError', error.message, {root: true})
+    })
+  },
+  addNewPost ({commit, dispatch}, payload) {
+    addNewRecord(payload).then((response) => {
+      commit('ADD_NEW_POST', response.data)
+    }).catch(error => {
+      dispatch('utility/commitError', error.message, {root: true})
+    })
+  },
+  updatePost ({commit, dispatch}, payload) {
+    updateRecord(payload).then((response) => {
+      commit('UPDATE_POST', response.data)
+    }).catch(error => {
       dispatch('utility/commitError', error.message, {root: true})
     })
   }

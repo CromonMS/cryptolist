@@ -70,7 +70,7 @@ export default {
         quantity: '',
         address: '',
         location: '',
-        date: '',
+        date: new Date().toISOString().slice(0, 10),
         portfolioId: this.user.Portfolio[0].id
       }
     }

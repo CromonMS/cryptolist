@@ -68,7 +68,7 @@ export default {
   methods: {
     addNewPost () {
       let newPost = this.newPost
-      this.$store.dispatch('posts/addNewPost', {endpoint: 'Posts', record: newPost})
+      this.$store.dispatch('posts/addNewPost', {endpoint: 'Posts', record: newPost}, {root: true})
       console.log(this.newPost)
     }
   }

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="content">
-      POSTS LIST
+      <news-post-item v-for="(post, index) in posts" :post="post" :key="index"></news-post-item>
     </div>
   </div>
 </template>
