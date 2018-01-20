@@ -61,7 +61,7 @@ export default {
     return {
       user: {
         username: 'cromon',
-        email: 'e@cromon.co.uk',
+        email: 'test@cromon.co.uk',
         password: '123456'
       },
       showUserName: false
