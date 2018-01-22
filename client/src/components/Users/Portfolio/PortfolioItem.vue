@@ -5,7 +5,7 @@
       <td>{{ coin.Coin.name }}</td>
       <td>
         <span v-if="!showEditQuantity" @dblclick="showEditQuantity = !showEditQuantity" title="Double Click to Edit">
-          {{ coin.quantity }}
+          {{ coin.quantity.toFixed(8) }}
         </span>
         <!-- <span v-else @keydown.enter="showEditQuantity = !showEditQuantity"> -->
         <span v-else @keydown.enter="updateCoin('quantity')">
@@ -24,9 +24,9 @@
           </div>
         </span>
       </td>
-      <td class="is-info"><i class="fa fa-btc"></i> {{ btcPrice }}</td>
-      <td>{{ ((coin.quantity * btcPrice) / totalPortfolioBtcValue) * 100 }}</td>
-      <td class="is-success"><i class="fa fa-btc"></i> {{ coin.quantity * btcPrice }}</td>
+      <td class="is-info"><i class="fa fa-btc"></i> {{ btcPrice.toFixed(8) }}</td>
+      <td>{{ (((coin.quantity * btcPrice) / totalPortfolioBtcValue) * 100).toFixed(8) }}</td>
+      <td class="is-success"><i class="fa fa-btc"></i> {{ (coin.quantity * btcPrice).toFixed(8) }}</td>
       <td class="link has-text-centered" @click="showExtendedInfo = !showExtendedInfo">
         <a class="has-text-black" title="MORE INFO">
           <i class="fa fa-info" v-if="!showExtendedInfo"></i>
