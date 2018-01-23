@@ -23,11 +23,6 @@ export default {
       type: Object
     }
   },
-  data () {
-    return {
-
-    }
-  },
   computed: {
     posts () {
       return this.$store.getters['posts/posts']

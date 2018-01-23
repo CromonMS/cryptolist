@@ -38,7 +38,11 @@ export const coinPrice = {
 export const isAdmin = {
   computed: {
     isAdmin () {
-      return this.user && this.user.Role[0].name === 'admin'
+      if (this.user.Role !== null && this.user.Role[0].name === 'admin') {
+        return true
+      } else {
+        return false
+      }
     }
   }
 }

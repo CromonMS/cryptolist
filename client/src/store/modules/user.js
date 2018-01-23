@@ -95,9 +95,13 @@ const actions = {
   forgotPassword ({commit, dispatch}, payload) {
   },
   signUpUser ({commit, dispatch}, payload) {
-    // createUser(payload).then((response) => {
-    //   commit('')
-    // })
+    addNewRecord(payload).then((response) => {
+      console.log('newUser', response.data)
+      dispatch('loginUser', {user: response.data})
+      dispatch('utility/commitNotification', 'Successfully Signed Up', {root: true})
+    }).catch(error => {
+      dispatch('utility/commitError', error.message, {root: true})
+    })
   },
   updateUser ({commit, dispatch, getters}, payload) {
     let accessToken = getters['accessToken']

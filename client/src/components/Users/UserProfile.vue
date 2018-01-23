@@ -2,11 +2,12 @@
   <section class="section">
     <div class="container">
       <div class="content">
-        <h2 class="title">User Profile</h2>
+        <h2 class="title" v-if="!isSignUp">User Profile</h2>
+        <h2 class="title" v-if="isSignUp">Sign Up</h2>
         <div class="container">
           <div class="columns">
             <div class="column is-half">
-              <h4 class="subtitle">General Settings</h4>
+              <h4 class="subtitle" v-if="!isSignUp">General Settings</h4>
               <div class="field">
                 <label class="label">Username</label>
                 <div class="control">
@@ -19,25 +20,31 @@
                   <input class="input" type="text" placeholder="Email" v-model="user.email">
                 </div>
               </div>
-              <div class="field">
+              <div class="field" v-if="isSignUp">
+                <label class="label">Password</label>
+                <div class="control">
+                  <input class="input" type="password" placeholder="Password" v-model="user.password">
+                </div>
+              </div>              
+              <div class="field" v-if="!isSignUp">
                 <label class="label">First Name</label>
                 <div class="control">
                   <input class="input" type="text" placeholder="First Name" v-model="user.firstName">
                 </div>
               </div>
-              <div class="field">
+              <div class="field" v-if="!isSignUp">
                 <label class="label">Last Name</label>
                 <div class="control">
                   <input class="input" type="text" placeholder="Last Name" v-model="user.lastName">
                 </div>
               </div>
-              <div class="field">
+              <div class="field" v-if="!isSignUp">
                 <label class="label">D.O.B.</label>
                 <div class="control">
                   <input class="input" type="date" placeholder="D.O.B." v-model="user.dob">
                 </div>
               </div>
-              <div class="field">
+              <div class="field" v-if="!isSignUp">
                 <label class="label">Country</label>
                 <div class="select">
                   <select name="country" v-model="user.country">
@@ -292,11 +299,11 @@
                     <option value="ZWE">Zimbabwe</option>
                   </select>       </div>
               </div>
-              <div class="field">
+              <div class="field" v-if="!isSignUp">
                 <label class="label">Base Currency</label>
                 <div class="select">
                   <select name="report" v-model="user.currency">
-                    <option selected="selected" value="">Never</option>
+                    <option selected="selected" value="">N/A</option>
                     <option value="GBP">GBP (British Pound)</option>
                     <option value="AUD">AUD (Australian Dollar)</option>
                     <option value="BGN">BGN (Bulgairan Lev)</option>
@@ -333,7 +340,7 @@
                 </div>
               </div>
             </div>
-            <div class="column">
+            <div class="column" v-if="!isSignUp">
               <h4 class="subtitle">Mail Settings</h4>
               <div class="field">
                 <label class="checkbox">
@@ -355,7 +362,8 @@
             </div>
           </div>
           <div class="field">
-            <button class="button is-success" type="" @click="updateUser">SUBMIT</button>
+            <button class="button is-success" type="" @click="updateUser" v-if="!isSignUp">SUBMIT</button>
+            <button class="button is-link" type="" @click="signUpUser" v-if="isSignUp">CREATE ACCOUNT</button>
           </div>
         </div>
       </div>
@@ -380,6 +388,15 @@ export default {
     updateUser () {
       console.log('user', this.user)
       this.$store.dispatch('user/updateUser', {endpoint: 'Members/', id: this.user.id, record: this.user})
+    },
+    signUpUser () {
+      console.log('user', this.user)
+      this.$store.dispatch('user/signUpUser', {endpoint: 'Members/', record: this.user})
+    }
+  },
+  computed: {
+    isSignUp () {
+      return this.$route.name === 'SignUp'
     }
   }
 }

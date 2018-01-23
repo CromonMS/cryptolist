@@ -34,9 +34,6 @@ export default {
     }
   },
   computed: {
-    users () {
-      return this.$store.getters['users/users']
-    },
     posts () {
       return this.$store.getters['posts/posts']
     }
