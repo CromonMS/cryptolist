@@ -37,6 +37,9 @@
     "dataSource": "db",
     "public": true
   },
+  "Email": {
+    "dataSource": "sendgrid"
+  },
   "Coin": {
     "dataSource": "db",
     "public": true

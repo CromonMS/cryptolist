@@ -3,6 +3,7 @@
   "description": "The Member model extends User",
   "base": "User",
   "idInjection": true,
+  "emailVerificatonRequired": true,
   "options": {
     "validateUpsert": true
   },

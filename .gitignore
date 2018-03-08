@@ -19,3 +19,4 @@ node_modules
 npm-debug.log
 
 /server/boot/create-admin-user.js
+/server/datasources.json
