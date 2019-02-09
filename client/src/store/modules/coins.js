@@ -13,7 +13,8 @@ import {
 } from '../../api/api'
 
 const state = {
-  coins: []
+  coins: [],
+  coin: null
 }
 
 const getters = {

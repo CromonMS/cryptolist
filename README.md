@@ -10,7 +10,8 @@ Client uses [Vue](https://vuejs.org)
 
 Styling with [Bulma](https://bulma.io)
 
-Server uses [LoopBack](http://loopback.io)
+Server built with [Sinatra](http://sinatrarb.com/)
+<!-- Server uses [LoopBack](http://loopback.io) -->
 
 Database uses MongoDB [MongoDB](https://mongodb.com)
 

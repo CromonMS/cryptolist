@@ -4,8 +4,7 @@ echo 'Installing Rubygems'
 bundle install
 
 echo 'Installing Server'
-npm install
+cd server && bundle install
 
 echo 'Installing Client'
-cd client && npm install
-
+cd client && yarn install
