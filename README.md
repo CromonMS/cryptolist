@@ -14,7 +14,7 @@ Styling with [Bulma](https://bulma.io)
 
 Server built with [Rails](http://rubyonrails.org/)
 
-Database uses PostgreSql [MongoDB](https://postgresql.org)
+Database uses [PostgreSql](https://postgresql.org)
 
 # Development
 
